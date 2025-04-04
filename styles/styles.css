@@ -1,0 +1,247 @@
+/* ===== DARK THEME RESET ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #f5f5f7;
+    background-color: #000;
+}
+
+/* ===== DARK NAVIGATION ===== */
+.main-nav {
+    background-color: rgba(22, 22, 23, 0.8);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 22px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.site-logo img {
+    width: 100px; /* Change logo size */
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links a {
+    color: #f5f5f7;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 400;
+    transition: opacity 0.3s;
+}
+
+.nav-links a:hover {
+    opacity: 0.7;
+}
+
+.primary-button {
+    background: #0071e3;
+    color: white;
+    border-radius: 980px;
+    padding: 8px 16px;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.primary-button:hover {
+    background: #0077ed;
+    transform: scale(1.02);
+}
+
+.primary-button.large {
+    padding: 12px 22px;
+    font-size: 17px;
+}
+
+/* ===== Hero SECTION ===== */
+.hero-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 100px 22px 60px;
+    text-align: center;
+}
+
+.hero-content {
+    margin-bottom: 60px;
+}
+
+.hero-headline {
+    font-size: 56px;
+    font-weight: 600;
+    line-height: 1.1;
+    letter-spacing: -0.003em;
+    margin-bottom: 12px;
+    background: linear-gradient(90deg, #fff, #aaa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-subhead {
+    font-size: 28px;
+    font-weight: 400;
+    color: #86868b;
+    margin-bottom: 24px;
+}
+
+/* ===== BENEFITS SECTION ===== */
+.benefits-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px 22px;
+    text-align: center;
+}
+
+.section-headline {
+    font-size: 40px;
+    font-weight: 600;
+    margin-bottom: 60px;
+    color: #f5f5f7;
+}
+
+.benefits-grid {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+}
+
+.benefit-card {
+    flex: 1;
+    max-width: 380px;
+    padding: 40px;
+    background: #1d1d1f;
+    border-radius: 18px;
+    border: 1px solid #333;
+}
+
+.benefit-icon {
+    font-size: 32px;
+    margin-bottom: 20px;
+    color: #0071e3;
+}
+
+.benefit-card h3 {
+    font-size: 24px;
+    font-weight: 500;
+    margin-bottom: 12px;
+    color: #f5f5f7;
+}
+
+.benefit-card p {
+    font-size: 17px;
+    color: #86868b;
+}
+
+/* ===== FOOTER ===== */
+.main-footer {
+    background: #1d1d1f;
+    border-top: 1px solid #333;
+    padding: 40px 0 20px;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 22px;
+}
+
+.footer-logo img {
+    width: 80px;
+    margin-bottom: 30px;
+}
+
+.footer-links {
+    display: flex;
+    gap: 60px;
+    margin-bottom: 30px;
+}
+
+.link-column {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.link-column h4 {
+    font-size: 12px;
+    font-weight: 600;
+    color: #86868b;
+    margin-bottom: 8px;
+}
+
+.link-column a {
+    color: #ccc;
+    text-decoration: none;
+    font-size: 12px;
+}
+
+.link-column a:hover {
+    color: #0071e3;
+}
+
+.footer-legal {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 20px;
+    border-top: 1px solid #333;
+    font-size: 12px;
+    color: #86868b;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+    
+    .site-logo img {
+        width: 80px;
+    }
+    
+    .hero-headline {
+        font-size: 80px;
+    }
+    
+    .hero-subhead {
+        font-size: 81px;
+    }
+    
+    .benefits-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .footer-links {
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+    .footer-logo img {
+        width: 80px;
+    }
+}
