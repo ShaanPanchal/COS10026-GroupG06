@@ -10,77 +10,116 @@
 <body>
     <header>
         <div class="Nmain">
-            <a href="index.html" class="site-logo">
-                <img src="images/logo.png" alt="SRN Careers Logo" width="80"> 
-            </a>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="jobs.html" class="active">Jobs</a></li>
-                <li><a href="apply.html">Apply</a></li>
-                <li><a href="about.html">About</a></li>
+          <a href="index.html" class="site-logo">
+            <img src="images/logo.png" alt="SRN Careers Logo" width="80"> 
+          </a>
+          <!-- Hidden checkbox for toggling nav -->
+          <input type="checkbox" id="menu-toggle" hidden>
+          <nav>
+            <!-- Use a label as the hamburger menu trigger -->
+            <label for="menu-toggle" class="hamburger-menu" aria-label="Menu">
+              <span></span>
+              <span></span>
+              <span></span>
+            </label>
+            <ul class="nav-links">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="jobs.html" class="active">Jobs</a></li>
+              <li><a href="apply.html">Apply</a></li>
+              <li><a href="about.html">About</a></li>
             </ul>
-        </nav>
-        <a href="mailto:careers@srn.com" class="primary-button hideInMobile">Contact</a>
+          </nav>
+          <a href="mailto:careers@srn.com" class="primary-button hideInMobile">Contact</a>
         </div>
-    </header>
-    <aside>
-        <h3>Why Join Us?</h3>
-        <p>We offer competitive salaries, flexible work arrangements, and opportunities for career growth in the IT industry.</p>
-    </aside>
-
+      </header>
     <main>
         <h1>Jobs Available</h1>
         <h2>CLOUD ENGINEERS</h2>
-        <div class="job-container">
-            <div class="job-card">
+        <section class="job-listings">
+            <div class="job-container">
+              <article class="job-card">
                 <h3>Software Engineer - Cloud Enablement (Hybrid Working)</h3>
                 <p>📍 Melbourne VIC</p>
                 <p>⏰ Full time</p>
                 <p>💰 180,000</p>
-                <a href="#">View Description</a>
-                <button class="apply-btn" >APPLY</button>
-            </div>
-            <div class="job-card">
-                <h3>Cloud Engineer <br>JUDO Bank</h3>
+                <div class="job-footer">
+                  <details class="job-description">
+                    <summary>View Description</summary>
+                    <div>
+                      Software Engineer developing scalable cloud solutions and automating infrastructure operations.
+                    </div>
+                  </details>
+                  <a href="apply.html" class="apply-btn">Apply</a>
+                </div>
+              </article>
+          
+              <article class="job-card">
+                <h3>DevOps Engineer<br>JUDO Bank</h3>
                 <p>📍 SYDNEY NSW</p>
                 <p>⏰ Full time</p>
                 <p>💰 100,000</p>
-                <a href="#">View Description</a>
-                <button class="apply-btn" >APPLY</button>
+                <div class="job-footer">
+                  <details class="job-description">
+                    <summary>View Description</summary>
+                    <div>
+                      DevOps Engineer to automate, scale, secure, and optimize infrastructure
+                    </div>
+                  </details>
+                  <a href="apply.html" class="apply-btn">Apply</a>
+                </div>
+              </article>
+          
+              <article class="job-card">
+                <h3>Cloud Engineer</h3>
+                <p>📍Melbourne VIC</p>
+                <p>⏰ Hybrid</p>
+                <p>💰 100,000</p>
+                <div class="job-footer">
+                  <details class="job-description">
+                    <summary>View Description</summary>
+                    <div>
+                      We are looking for a Cloud Engineer to build and scale our cloud platform.
+                      Experience with AWS, Terraform, and Kubernetes is a plus.
+                    </div>
+                  </details>
+                  <a href="apply.html" class="apply-btn">Apply</a>
+                </div>
+              </article>
             </div>
-            <div class="job-card">
-                <h3>Cloud Engineer <br>Major Road Projects Victoria</h3>
-                <p>📍 Melbourne VIC</p>
-                <p>⏰ Full time</p>
-                <p>💰 150,000</p>
-                <a href="#">View Description</a>
-                <button class="apply-btn" a href="apply.html">APPLY</button>
-            </div>
-        </div>
+          </section>
     </main>
-</body>
-<footer>
-    <div class="footer-container">
-        <div class="footer-logo">
+    <aside>
+        <section class="why-join-us">
+          <a href="about.html">
+            <h3 class="aside-header">Why Join Us?</h3>
+            <p>We offer competitive salaries, flexible work arrangements, and opportunities for career growth in the IT industry.</p>
+          </a>
+        </section>
+      </aside>
+      <footer>
+        <div class="footer-container">
+          <div class="footer-logo">
             <img src="images/logo.png" alt="SRN Careers Logo">
-        </div>
-        <div class="footer-section">
-            <div>
+          </div>
+          <section class="footer-columns">
+            <div class="footer-section">
+              <div>
                 <h4>Services</h4>
                 <a href="#">Executive Search</a>
                 <a href="#">Contract Staffing</a>
                 <a href="#">Consulting</a>
-            </div>
-            <div>
+              </div>
+              <div>
                 <h4>Resources</h4>
-                <a href="#">About Us</a>
+                <a href="about.html">About Us</a>
                 <a href="#">Privacy Policy</a>
+              </div>
             </div>
+          </section>
         </div>
-    </div>
-    <div class="footer-bottom">
-        © 2025 SRN Careers. All rights reserved.
-    </div>
-</footer>
+        <div class="footer-bottom">
+          © 2025 SRN Careers. All rights reserved.
+        </div>
+      </footer>
+</body>
 </html>

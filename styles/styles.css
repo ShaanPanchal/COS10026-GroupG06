@@ -1,3 +1,27 @@
+
+
+
+/*
+
+filename: [style.css]
+
+author: [Shaan,Neeven]
+
+created: [enter date]
+
+last modified: [enter date]
+
+description: [html files it refers to careers.srn]
+
+*/
+
+
+
+
+
+
+
+
 /* ===== DARK THEME RESET ===== */
 * {
     margin: 0;
@@ -52,6 +76,7 @@ html {
     font-weight: 400;
     transition: opacity 0.3s;
 }
+
 
 .nav-links a:hover {
     opacity: 0.7;
@@ -346,20 +371,31 @@ main {
     padding: 40px;
 }
 
+/* main word content styling*/
 h1 {
-    font-size: 28px;
+    font-size: 56px;
+    font-weight: 600;
+    line-height: 1.1;
+    letter-spacing: -0.003em;
+    margin-bottom: 12px;
+    background: linear-gradient(90deg, #fff, #f8f7f7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 h2 {
-    font-size: 22px;
-    margin-bottom: 30px;
+    font-size: 28px;
+    font-weight: 400;
+    color: #86868b;
+    margin-bottom: 24px;
 }
 
 .job-container {
     display: flex;
-    justify-content: center;
+    justify-content: center; 
     gap: 20px;
     flex-wrap: wrap;
+    align-items: flex-start;
 }
 
 .job-card {
@@ -368,6 +404,10 @@ h2 {
     border-radius: 10px;
     width: 250px;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 300px;
 }
 
 .job-card h3 {
@@ -382,6 +422,57 @@ h2 {
     font-size: 17px;
     color: #86868b;
 }
+a {
+    color: white;
+    text-decoration: none; 
+}
+
+/* description content */
+
+.job-description {
+    margin-top: 10px;
+    text-align: left;
+    font-size: 14px;
+    background: #1d1d1f;
+    border: 1px solid #333;
+    border-radius: 8px;
+    padding: 10px 15px;
+    color: #ccc;
+}
+
+.job-description summary {
+    cursor: pointer;
+    color: #0077cc;
+    font-weight: 500;
+    margin-bottom: 8px;
+}
+
+.job-description[open] summary {
+    color: #f5f5f7;
+}
+
+
+/*   aside styling  */
+
+aside{
+    padding: 70px;
+    min-width: 30%;
+    font-size: 28px;
+    font-weight: 400;
+    color: #86868b;
+}
+
+.aside-header{
+    color: white;
+}
+
+aside:hover a{
+    color: #0071e3;
+}
+
+
+
+/* apply button styling */
 
 .apply-btn {
     background-color: rgb(28, 96, 241);
@@ -391,7 +482,11 @@ h2 {
     font-size: 14px;
     border-radius: 5px;
     margin-top: 10px;
+    color: #f5f5f7;
 }
+
+/* footer styling */
+
 footer {
     background-color: #222;
     color: white;
@@ -399,19 +494,24 @@ footer {
     text-align: left;
 }
 
+
 .footer-container {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
     max-width: 1200px;
     margin: 0 auto;
+    position: relative;
 }
 
 .footer-logo img {
-    width: 120px; /* Adjust as needed */
+    width: 120px; 
 }
 
 .footer-section {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
     display: flex;
     gap: 50px;
 }
@@ -434,7 +534,7 @@ footer {
 }
 
 .footer-section a:hover {
-    color: lightblue;
+    color: #0071e3;
 }
 
 .footer-bottom {
@@ -473,7 +573,7 @@ nav ul {
     padding: 0;
     margin: 0;
     display: flex;
-    gap: 30px;
+    gap: 10px;
 }
 
 nav ul li {
@@ -490,6 +590,41 @@ nav ul li a {
 }
 
 nav ul li a.active {
-    color: lightblue;
+    color: rgb(92, 160, 182);
 }
 
+
+
+/* job cards description styling */
+
+.job-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+    gap: 10px;
+}
+
+.job-footer .job-description {
+    flex: 1;
+    margin-top: 0;
+    padding: 10px;
+}
+
+.job-footer .apply-btn {
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.job-card {
+    width: 90%;
+    max-width: 400px; 
+    height: auto; 
+    margin: 0 auto 20px; 
+  }
+
+
+.job-container {
+    flex-direction: row;
+    align-items: center;
+  }
