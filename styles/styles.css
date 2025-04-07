@@ -1,6 +1,5 @@
 
 
-
 /*
 
 filename: [style.css]
@@ -18,11 +17,7 @@ description: [html files it refers to careers.srn]
 
 
 
-
-
-
-
-/* ===== DARK THEME RESET ===== */
+/* DARK THEME RESET */
 * {
     margin: 0;
     padding: 0;
@@ -37,7 +32,7 @@ html {
     background-color: #000;
 }
 
-/* ===== DARK NAVIGATION ===== */
+/* DARK THEME */
 .main-nav {
     background-color: rgba(22, 22, 23, 0.8);
     backdrop-filter: blur(20px);
@@ -103,7 +98,7 @@ html {
     font-size: 17px;
 }
 
-/* ===== Hero SECTION ===== */
+/* Hero SECTION */
 .hero-section {
     max-width: 1200px;
     margin: 0 auto;
@@ -136,7 +131,7 @@ html {
 
 
 
-/* ===== BENEFITS SECTION ===== */
+/* BENEFITS SECTION  */
 .benefits-section {
     max-width: 1200px;
     margin: 0 auto;
@@ -184,7 +179,7 @@ html {
     color: #86868b;
 }
 
-/* ===== FOOTER ===== */
+/* FOOTER  */
 .main-footer {
     background: #1d1d1f;
     border-top: 1px solid #333;
@@ -241,7 +236,7 @@ html {
     color: #86868b;
 }
 
-/* ===== RESPONSIVE ===== */
+/* RESPONSIVE */
 @media (max-width: 768px) {
     .nav-links {
         display: none;
@@ -274,7 +269,7 @@ html {
     }
 }
 
-/* ===== HAMBURGER MENU ===== */
+/*  HAMBURGER MENU */
 .hamburger-menu {
     display: none; /* Hidden by default on desktop */
     background: none;
