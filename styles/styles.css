@@ -354,6 +354,14 @@ html {
 
 
 
+
+
+
+
+
+
+
+
 /* jobs page styling*/
 
 body {
@@ -372,15 +380,15 @@ main {
 }
 
 /* main word content styling*/
+
 h1 {
     font-size: 56px;
     font-weight: 600;
     line-height: 1.1;
     letter-spacing: -0.003em;
     margin-bottom: 12px;
-    background: linear-gradient(90deg, #fff, #f8f7f7);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    background: black;
+    color: #f8f6f6;
 }
 
 h2 {
@@ -550,12 +558,12 @@ footer {
 header{
     background-color: rgba(22, 22, 23, 0.8);
     backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
     position: sticky;
     top: 0;
     z-index: 100;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
+
 .Nmain{
     max-width: 1200px;
     margin: 0 auto;
@@ -564,6 +572,7 @@ header{
     align-items: center;
     justify-content: space-between;
 }
+
 nav a:hover {
     opacity: 0.7;
 }
@@ -615,6 +624,9 @@ nav ul li a.active {
     white-space: nowrap;
     flex-shrink: 0;
 }
+
+
+
 
 .job-card {
     width: 90%;
