@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apply for Position | SRN Careers</title>
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@300;400;500;600&display=swap">
+    <link rel="icon" href="images/logo.png" type="image/png">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="index.html" class="site-logo">
+                <img src="images/logo.png" alt="SRN Careers Logo" width="80"> 
+            </a>
+            <button class="hamburger-menu" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="jobs.html">Jobs</a>
+                <a href="apply.html" class="active">Apply</a>
+                <a href="about.html">About</a>
+            </div>
+            <a href="mailto:careers@srn.com" class="primary-button hideInMobile">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Application Form Section -->
+    <section class="application-section">
+        <div class="form-container">
+            <h1 class="section-headline">Application Form</h1>
+            <p class="section-subhead">Complete the form below to apply for the position</p>
+            
+            <form id="application-form" action="thank-you.html" method="POST" enctype="multipart/form-data">
+                <div class="form-grid">
+                    <!-- Personal Information -->
+                    <div class="form-group">
+                        <label for="first-name">First Name</label>
+                        <input type="text" id="first-name" name="first-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="last-name">Last Name</label>
+                        <input type="text" id="last-name" name="last-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                    
+                    <!-- Job Information -->
+                    <div class="form-group full-width">
+                        <label for="position">Position Applying For</label>
+                        <input type="text" id="position" name="position" required>
+                    </div>
+                    
+                    <!-- Resume Upload -->
+                    <div class="form-group full-width">
+                        <label for="resume">Upload Resume (PDF or DOCX)</label>
+                        <div class="file-upload">
+                            <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx" required>
+                            <label for="resume" class="file-upload-label">Choose File</label>
+                            <span class="file-name">No file chosen</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Cover Letter -->
+                    <div class="form-group full-width">
+                        <label for="cover-letter">Cover Letter (Optional)</label>
+                        <textarea id="cover-letter" name="cover-letter" rows="5"></textarea>
+                    </div>
+                    
+                    <!-- Submit Button -->
+                    <div class="form-group full-width">
+                        <button type="submit" class="primary-button large">Submit Application</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-logo">
+                <img src="images/logo.png" alt="SRN Careers Logo" width="80">
+            </div>
+            <div class="footer-links">
+                <div class="link-column">
+                    <h4>Services</h4>
+                    <a href="jobs.html">Executive Search</a>
+                    <a href="jobs.html">Contract Staffing</a>
+                    <a href="jobs.html">Consulting</a>
+                </div>
+                <div class="link-column">
+                    <h4>Resources</h4>
+                    <a href="about.html">About Us</a>
+                    <a href="privacy.html">Privacy Policy</a>
+                </div>
+            </div>
+            <div class="footer-legal">
+                <p>© 2025 SRN Careers. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // File upload display
+        document.getElementById('resume').addEventListener('change', function(e) {
+            const fileName = e.target.files[0] ? e.target.files[0].name : 'No file chosen';
+            document.querySelector('.file-name').textContent = fileName;
+        });
+    </script>
+</body>
+</html>
