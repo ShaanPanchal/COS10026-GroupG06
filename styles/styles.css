@@ -41,6 +41,7 @@ html {
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
+/* navigation */
 .nav-container {
     max-width: 1200px;
     margin: 0 auto;
@@ -51,7 +52,7 @@ html {
 }
 
 .site-logo img {
-    width: 100px; /* Change logo size */
+    width: 100px; 
     height: auto;
     transition: transform 0.3s ease;
 }
@@ -67,13 +68,31 @@ html {
     text-decoration: none;
     font-size: 14px;
     font-weight: 400;
-    transition: opacity 0.3s;
+    transition: color 0.3s ease;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 0;
+    height: 2px;
+    background-color: #0077cc;
+    border-radius: 2px;
+    transition: width 0.3s ease;
 }
 
 
 .nav-links a:hover {
     opacity: 0.7;
+    color:#0077cc
 }
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
 
 .primary-button {
     background: #0071e3;
@@ -177,7 +196,7 @@ html {
     color: #86868b;
 }
 
-/* FOOTER  */
+/* footer */
 .main-footer {
     background: #1d1d1f;
     border-top: 1px solid #333;
@@ -188,6 +207,10 @@ html {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 22px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
 }
 
 .footer-logo img {
@@ -199,6 +222,7 @@ html {
     display: flex;
     gap: 60px;
     margin-bottom: 30px;
+    
 }
 
 .link-column {
@@ -208,7 +232,7 @@ html {
 }
 
 .link-column h4 {
-    font-size: 12px;
+    font: size 20px; 
     font-weight: 600;
     color: #86868b;
     margin-bottom: 8px;
@@ -225,78 +249,45 @@ html {
 }
 
 .footer-legal {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    width: 100%;
+    text-align: center;
     padding-top: 20px;
     border-top: 1px solid #333;
     font-size: 12px;
     color: #86868b;
+    margin-top: 30px;
 }
 
-/* RESPONSIVE */
+
+
+/* RESPONSIVE only for mobiles */
+
+/* Hide checkbox */
+.menu-toggle {
+    display: none;
+}
+
+/*  Show hamburger menu on mobile */
 @media (max-width: 768px) {
-    .nav-links {
-        display: none;
-    }  
-    
-    .site-logo img {
-        width: 80px;
-    }
-    
-    .hero-headline {
-        font-size: 80px;
-    }
-    
-    .hero-subhead {
-        font-size: 81px;
-    }
-    
-    .benefits-grid {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .footer-links {
-        flex-direction: column;
-        gap: 30px;
-    }
-    
-    .footer-logo img {
-        width: 80px;
-    }
-}
-
-/*  HAMBURGER MENU */
-.hamburger-menu {
-    display: none; /* Hidden by default on desktop */
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 10px;
-    z-index: 101;
-}
-
-.hamburger-menu span {
-    display: block;
-    width: 24px;
-    height: 2px;
-    background: #f5f5f7;
-    margin: 5px 0;
-    transition: all 0.3s ease;
-}
-
-/* Mobile styles */
-@media (max-width: 768px) {
-
-    .hideInMobile{
-        display:none;
-        }
-        
     .hamburger-menu {
-        display: block; /* Show hamburger on mobile */
+        display: block;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 10px;
+        z-index: 101;
     }
-    
+
+    .hamburger-menu span {
+        display: block;
+        width: 24px;
+        height: 2px;
+        background: #f5f5f7;
+        margin: 5px 0;
+        transition: all 0.3s ease;
+    }
+
+    /* Hide nav by default */
     .nav-links {
         position: fixed;
         top: 0;
@@ -313,44 +304,52 @@ html {
         transition: right 0.3s ease;
         z-index: 100;
         padding-top: 80px;
+        display: flex;
     }
-    
-    .nav-links.active {
+
+    /*  Slide nav into view when checkbox is checked */
+    .menu-toggle:checked + .hamburger-menu + .nav-links {
         right: 0;
     }
-    
-    .primary-button {
-        position: fixed;
-        bottom: 30px;
-        right: 50%;
-        transform: translateX(50%);
-        width: 80%;
-        text-align: center;
-        z-index: 101;
-    }
-    
-    /* Animate hamburger to X when active */
-    .hamburger-menu.active span:nth-child(1) {
+
+    /* Animate burger into "X" */
+    .menu-toggle:checked + .hamburger-menu span:nth-child(1) {
         transform: translateY(7px) rotate(45deg);
     }
-    
-    .hamburger-menu.active span:nth-child(2) {
+
+    .menu-toggle:checked + .hamburger-menu span:nth-child(2) {
         opacity: 0;
     }
-    
-    .hamburger-menu.active span:nth-child(3) {
+
+    .menu-toggle:checked + .hamburger-menu span:nth-child(3) {
         transform: translateY(-7px) rotate(-45deg);
+    }
+
+    /* Optional: Hide desktop button in mobile view */
+    .hideInMobile {
+        display: none;
     }
 }
 
+/* ✅ Desktop styles (menu always visible) */
+@media (min-width: 769px) {
+    .nav-links {
+        display: flex !important;
+        position: static;
+        flex-direction: row;
+        gap: 30px;
+        align-items: center;
+        justify-content: flex-end;
+        height: auto;
+        background: transparent;
+        padding-top: 0;
+    }
 
-
-
-
-
-
-
-
+    .hamburger-menu,
+    .menu-toggle {
+        display: none;
+    }
+}
 
 
 
@@ -366,7 +365,7 @@ body {
     text-align: center;
 }
 
-/body styling/
+/*body styling*/
 
 main {
     padding: 40px;
@@ -496,7 +495,7 @@ footer {
 }
 
 
-.footer-container {
+.footer-containers {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
@@ -556,45 +555,6 @@ header{
     z-index: 100;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
-
-.Nmain{
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 22px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-nav a:hover {
-    opacity: 0.7;
-}
-
-nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    gap: 10px;
-}
-
-nav ul li {
-    margin: 0 15px;
-    display: flex;
-}
-
-nav ul li a {
-    color: #f5f5f7;
-    text-decoration: none;
-    font-size: 14px;
-    font-weight: 400;
-    transition: opacity 0.3s;
-}
-
-nav ul li a.active {
-    color: rgb(92, 160, 182);
-}
-
 
 
 /* job cards description styling */
@@ -931,6 +891,8 @@ input:disabled, button:disabled {
 }
 .gets{
     list-style-type: none;
+    margin-right: 30%;
+    margin-left: 25%;
 }
 
 
@@ -965,6 +927,7 @@ input:disabled, button:disabled {
 .heading-group-style{
     margin-left: 30%;
     margin-right: 30%;
+    color:#86868b;
 }
 
 
@@ -1032,3 +995,4 @@ th {
 .nav-links a.active {
     color: #0077cc;
 }
+

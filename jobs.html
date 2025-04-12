@@ -25,7 +25,7 @@ description: [html files it refers to careers.srn]
 </head>
 <body>
     <header>
-        <div class="Nmain">
+        <div class="nav-container">
           <a href="index.html" class="site-logo">
             <img src="images/logo.png" alt="SRN Careers Logo" width="80"> 
           </a>
@@ -33,17 +33,19 @@ description: [html files it refers to careers.srn]
           <input type="checkbox" id="menu-toggle" hidden>
           <nav>
             <!-- Use a label as the hamburger menu trigger -->
-            <label for="menu-toggle" class="hamburger-menu" aria-label="Menu">
-              <span></span>
-              <span></span>
-              <span></span>
+            <input type="checkbox" id="menu-toggle" class="menu-toggle">
+            <label for="menu-toggle" class="hamburger-menu" aria-label="Toggle Menu">
+                <span></span>
+                <span></span>
+                <span></span>
             </label>
-            <ul class="nav-links">
-              <li><a href="index.html">Home</a></li>
-              <li><a href="jobs.html" class="active">Jobs</a></li>
-              <li><a href="apply.html">Apply</a></li>
-              <li><a href="about.html">About</a></li>
-            </ul>
+            
+            <div class="nav-links">
+                <a class="homenva" href="index.html">Home</a>
+                <a href="jobs.html">Jobs</a>
+                <a href="apply.html">Apply</a>
+                <a href="about.html">About</a>
+            </div>
           </nav>
           <a href="mailto:careers@srn.com" class="primary-button hideInMobile">Contact</a>
         </div>
@@ -113,7 +115,7 @@ description: [html files it refers to careers.srn]
         </section>
       </aside>
       <footer>
-        <div class="footer-container">
+        <div class="footer-containers">
           <div class="footer-logo">
             <img src="images/logo.png" alt="SRN Careers Logo">
           </div>

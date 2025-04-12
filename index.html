@@ -22,7 +22,7 @@ description: [html files it refers to careers.srn]
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@300;400;500;600&display=swap"> 
     <link rel="icon" href="images/logo.png" type="image/png">
 </head>
-<body>
+<nav>
     <!-- Navigation Bar -->
     <nav class="main-nav">
         <div class="nav-container">
@@ -30,23 +30,23 @@ description: [html files it refers to careers.srn]
                 <img src="images/logo.png" alt="SRN Careers Logo" width="80"> 
             </a>
 <!-- hamburger button for phone -->
-            <button class="hamburger-menu" aria-label="Menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-           
-
-
-            <div class="nav-links">
-                <a class="homenva" href="index.html">Home</a>
-                <a href="jobs.html">Jobs</a>
-                <a href="apply.html">Apply</a>
-                <a href="about.html">About</a>
-            </div>
+<input type="checkbox" id="menu-toggle" class="menu-toggle">
+<label for="menu-toggle" class="hamburger-menu" aria-label="Toggle Menu">
+    <span></span>
+    <span></span>
+    <span></span>
+</label>
+<div class="nav-links">
+    <a class="homenva" href="index.html">Home</a>
+    <a href="jobs.html">Jobs</a>
+    <a href="apply.html">Apply</a>
+    <a href="about.html">About</a>
+</div>
             <a href="mailto:careers@srn.com" class="primary-button hideInMobile">Contact</a>
         </div>  
     </nav>
+</nav>
+
 
     <!-- Hero Section -->
     <section class="hero-section">
