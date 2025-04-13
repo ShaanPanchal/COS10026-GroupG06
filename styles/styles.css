@@ -94,6 +94,20 @@ html {
 }
 
 
+/* Active link (current page) */
+
+.nav-links a.active {
+    color: #0077cc;
+}
+
+.nav-links a.active::after {
+    width: 100%;
+}
+
+
+/*contact button styling */
+
+
 .primary-button {
     background: #0071e3;
     color: white;
@@ -222,7 +236,7 @@ html {
     display: flex;
     gap: 60px;
     margin-bottom: 30px;
-    
+    margin-right: 40% ;
 }
 
 .link-column {
@@ -296,7 +310,6 @@ html {
         height: 100vh;
         background: rgba(22, 22, 23, 0.95);
         backdrop-filter: blur(20px);
-        -webkit-backdrop-filter: blur(20px);
         flex-direction: column;
         align-items: center;
         justify-content: center;
@@ -325,13 +338,13 @@ html {
         transform: translateY(-7px) rotate(-45deg);
     }
 
-    /* Optional: Hide desktop button in mobile view */
+    /* Hide desktop button in mobile view */
     .hideInMobile {
         display: none;
     }
 }
 
-/* ✅ Desktop styles (menu always visible) */
+/* Desktop styles (menu always visible) */
 @media (min-width: 769px) {
     .nav-links {
         display: flex !important;
