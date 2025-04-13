@@ -86,12 +86,11 @@ description: [html files it refers to careers.srn]
                     <div class="form-group full-width">
                         <label for="resume">Upload Resume (PDF or DOCX)</label>
                         <div class="file-upload">
-                            <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx" required>
                             <label for="resume" class="file-upload-label">Choose File</label>
+                            <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx" required hidden>
                             <span class="file-name">No file chosen</span>
                         </div>
                     </div>
-                    
                     <!-- Cover Letter -->
                     <div class="form-group full-width">
                         <label for="cover-letter">Cover Letter (Optional)</label>
@@ -131,7 +130,6 @@ description: [html files it refers to careers.srn]
             </div>
         </div>
     </footer>
-
     <script>
         // File upload display
         document.getElementById('resume').addEventListener('change', function(e) {
