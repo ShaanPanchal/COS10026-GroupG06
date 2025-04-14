@@ -597,10 +597,6 @@ header{
     white-space: nowrap;
     flex-shrink: 0;
 }
-
-
-
-
 .job-card {
     width: 90%;
     max-width: 400px; 
@@ -858,7 +854,7 @@ html {
 .primary-button {
     background: #0071e3;
     color: #fff;
-    border: none; /* ✅ Removes border */
+    border: none; 
     border-radius: 980px;
     padding: 12px 24px;
     font-size: 16px;
@@ -921,12 +917,15 @@ html {
     margin-right: 20%;
     color: #aaa;
 }
+
 .gets{
     list-style-type: none;
     margin-right: 30%;
     margin-left: 25%;
 }
-
+.plist{
+    list-style-type: none;
+}
 
 .contact-us-in-headings {
     color: #0077cc;
@@ -1019,7 +1018,7 @@ th, td {
 }
 
 th {
-    background-color :#86868b ;
+    background-color :#0c0c0c ;
 }
 
 
