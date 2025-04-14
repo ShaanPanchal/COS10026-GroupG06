@@ -53,58 +53,127 @@ description: [html files it refers to careers.srn]
     <!-- Application Form Section -->
     <section class="application-section">
         <div class="form-container">
-            <h1 class="section-headline">Application Form</h1>
-            <p class="section-subhead">Complete the form below to apply for the position</p>
-            
-            <form id="application-form" action="thank-you.html" method="POST" enctype="multipart/form-data">
-                <div class="form-grid">
-                    <!-- Personal Information -->
-                    <div class="form-group">
-                        <label for="first-name">First Name</label>
-                        <input type="text" id="first-name" name="first-name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="last-name">Last Name</label>
-                        <input type="text" id="last-name" name="last-name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email Address</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="phone">Phone Number</label>
-                        <input type="tel" id="phone" name="phone" required>
-                    </div>
-                    
-                    <!-- Job Information -->
-                    <div class="form-group full-width">
-                        <label for="position">Position Applying For</label>
-                        <input type="text" id="position" name="position" required>
-                    </div>
-                    
-                    <!-- Resume Upload -->
-                    <div class="form-group full-width">
-                        <label for="resume">Upload Resume (PDF or DOCX)</label>
-                        <div class="file-upload">
-                            <label for="resume" class="file-upload-label">Choose File</label>
-                            <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx" required hidden>
-                            <span class="file-name">No file chosen</span>
-                        </div>
-                    </div>
-                    <!-- Cover Letter -->
-                    <div class="form-group full-width">
-                        <label for="cover-letter">Cover Letter (Optional)</label>
-                        <textarea id="cover-letter" name="cover-letter" rows="5"></textarea>
-                    </div>
-                    
-                    <!-- Submit Button -->
-                    <div class="form-group full-width">
-                        <button type="submit" class="primary-button large">Submit Application</button>
-                    </div>
-                </div>
-            </form>
+          <h1 class="section-headline">Application Form</h1>
+          <p class="section-subhead">Complete the form below to apply for the position</p>
+      
+          <form id="application-form" action="thank-you.html" method="POST" enctype="multipart/form-data">
+            <div class="form-grid">
+              <!-- Job Reference -->
+              <div class="form-group full-width">
+                <label for="job-ref">Job Reference Number</label>
+                <select id="job-ref" name="job-ref" required>
+                  <option value="">Select job reference</option>
+                  <option value="CLOUD101">CLOUD101</option>
+                  <option value="DEVOPS202">DEVOPS202</option>
+                  <option value="SOFT303">SOFT303</option>
+                </select>
+              </div>
+      
+              <!-- First name -->
+              <div class="form-group">
+                <label for="first-name">First Name</label>
+                <input type="text" id="first-name" name="first-name" maxlength="20" pattern="[A-Za-z\s]+" required>
+              </div>
+      
+              <!-- Last name -->
+              <div class="form-group">
+                <label for="last-name">Last Name</label>
+                <input type="text" id="last-name" name="last-name" maxlength="20" pattern="[A-Za-z\s]+" required>
+              </div>
+      
+              <!-- DOB -->
+              <div class="form-group">
+                <label for="dob">Date of Birth</label>
+                <input type="text" id="dob" name="dob" placeholder="dd/mm/yyyy" pattern="\d{2}/\d{2}/\d{4}" required>
+              </div>
+      
+              <!-- Gender -->
+              <div class="form-group full-width">
+                <fieldset>
+                  <legend>Gender</legend>
+                  <label><input type="radio" name="gender" value="male" required> Male</label>
+                  <label><input type="radio" name="gender" value="female"> Female</label>
+                  <label><input type="radio" name="gender" value="other"> Other</label>
+                </fieldset>
+              </div>
+      
+              <!-- Street -->
+              <div class="form-group">
+                <label for="street">Street Address</label>
+                <input type="text" id="street" name="street" maxlength="40" required>
+              </div>
+      
+              <!-- Suburb -->
+              <div class="form-group">
+                <label for="suburb">Suburb/Town</label>
+                <input type="text" id="suburb" name="suburb" maxlength="40" required>
+              </div>
+      
+              <!-- State -->
+              <div class="form-group">
+                <label for="state">State</label>
+                <select id="state" name="state" required>
+                  <option value="">Select state</option>
+                  <option value="VIC">VIC</option>
+                  <option value="NSW">NSW</option>
+                  <option value="QLD">QLD</option>
+                  <option value="NT">NT</option>
+                  <option value="WA">WA</option>
+                  <option value="SA">SA</option>
+                  <option value="TAS">TAS</option>
+                  <option value="ACT">ACT</option>
+                </select>
+              </div>
+      
+              <!-- Postcode -->
+              <div class="form-group">
+                <label for="postcode">Postcode</label>
+                <input type="text" id="postcode" name="postcode" pattern="\d{4}" maxlength="4" required>
+              </div>
+      
+              <!-- Email -->
+              <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" required>
+              </div>
+      
+              <!-- Phone -->
+              <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" pattern="[0-9 ]{8,12}" required>
+              </div>
+      
+              <!-- Skills checkbox -->
+              <div class="form-group full-width">
+                <fieldset>
+                  <legend>Technical Skills</legend>
+                  <label><input type="checkbox" name="skills" value="HTML"> HTML</label>
+                  <label><input type="checkbox" name="skills" value="CSS"> CSS</label>
+                  <label><input type="checkbox" name="skills" value="JavaScript"> JavaScript</label>
+                  <label><input type="checkbox" name="skills" value="Python"> Python</label>
+                </fieldset>
+              </div>
+      
+              <!-- Other skills -->
+              <div class="form-group full-width">
+                <label for="other-skills">Other Skills</label>
+                <textarea id="other-skills" name="other-skills" rows="4"></textarea>
+              </div>
+      
+              <!-- Resume -->
+              <div class="form-group full-width">
+                <label for="resume">Upload Resume</label>
+                <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx" required>
+              </div>
+      
+              <!-- Submit -->
+              <div class="form-group full-width">
+                <button type="submit" class="primary-button large">Submit Application</button>
+              </div>
+            </div>
+          </form>
         </div>
-    </section>
+      </section>
 
     <!-- Footer -->
     <footer class="main-footer">
@@ -130,6 +199,7 @@ description: [html files it refers to careers.srn]
             </div>
         </div>
     </footer>
+
     <script>
         // File upload display
         document.getElementById('resume').addEventListener('change', function(e) {
