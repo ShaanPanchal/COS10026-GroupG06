@@ -28,6 +28,28 @@ description: [html files it refers to careers.srn]
 </head>
 
 <body>
+     <!-- Navigation Bar -->
+        <nav class="main-nav">
+            <div class="nav-container">
+                <a href="index.html" class="site-logo">
+                    <img src="images/logo.png" alt="SRN Careers Logo" width="80"> 
+                </a>
+                <input type="checkbox" id="menu-toggle" class="menu-toggle">
+                <label for="menu-toggle" class="hamburger-menu" aria-label="Toggle Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </label>
+                
+                <div class="nav-links">
+                    <a class="homenva" href="index.html">Home</a>
+                    <a href="jobs.html">Jobs</a>
+                    <a href="apply.html">Apply</a>
+                    <a href="about.html" class="active">About</a>
+                </div>
+                <a href="mailto:careers@srn.com" class="primary-button hideInMobile">Contact</a>
+            </div>
+        </nav>
     <!-- Main Content -->
     <main class="main-content">
         <section class="about-section">
@@ -40,15 +62,14 @@ description: [html files it refers to careers.srn]
             <p class="paragraph">To transform the recruitment landscape by prioritizing quality, speed, and cultural alignment—ensuring every placement drives long-term success.</p>
 
             <h2 class="section-headline">Why Choose Us?</h2>
-            <ul class="paragraph">
+            <ul class="paragraph plist">
                 <li>Strategic Matching: Data-driven alignment of skills and company values.</li>
                 <li>Industry Expertise: Deep knowledge across tech, finance, and creative sectors.</li>
                 <li>Transparent Process: Clear communication from first contact to onboarding.</li>
                 <li>Global Network: Access to top-tier professionals worldwide.</li>
-            </ul>
-
+              </ul>
             <h2 class="section-headline">Our Values</h2>
-            <ul class="paragraph">
+            <ul class="paragraph plist">
                 <li>Integrity: Honest, ethical partnerships.</li>
                 <li>Innovation: Leveraging AI and human expertise.</li>
                 <li>Impact: Building teams that shape the future.</li>
@@ -71,7 +92,7 @@ description: [html files it refers to careers.srn]
                 <li><strong>Group Name:</strong> SRN Careers</li>
                 <li><strong>Class Time:</strong> Every Monday</li>
                 <li><strong>Student IDs:</strong>
-                    <ul>
+                    <ul class="gets">
                         <li>105229389</li>
                         <li>105912281</li>
                     </ul>
@@ -88,13 +109,11 @@ description: [html files it refers to careers.srn]
                 <dt>Neeven</dt>
                 <dd>Job description, about page</dd>
             </dl>
-
             <h2 class="section-headline">Our Team Photo</h2>
             <figure>
-                <img src="images/group_photo.jpg" alt="Group Photo" width="400">
-                <figcaption>Captured during brainstorming session</figcaption>
+                <img src="images/group-photo.png" alt="Group Photo" width="900">
+                <figcaption>Captured during brainstorming session in late-lab</figcaption>
             </figure>
-
             <h2 class="section-headline">Member Interests</h2>
             <table class="table-of-members">
                 <caption>What Drives Us</caption>
@@ -133,8 +152,32 @@ description: [html files it refers to careers.srn]
             <a href="reviews.html">
                 <h2 class="reviews-in-about-page">Reviews</h2>
             </a>
-        </section>
+        </sect>
     </main>
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-logo">
+                <img src="images/logo.png" alt="SRN Careers Logo" width="80">
+            </div>
+            <div class="footer-links">
+                <div class="link-column">
+                    <h4>Services</h4>
+                    <a href="jobs.html">Executive Search</a>
+                    <a href="jobs.html">Contract Staffing</a>
+                    <a href="jobs.html">Consulting</a>
+                </div>
+                <div class="link-column">
+                    <h4>Resources</h4>
+                    <a href="about.html">About Us</a>
+                    <a href="privacy.html">Privacy Policy</a>
+                </div>
+            </div>
+            <div class="footer-legal">
+                <p> &copy; 2025 SRN Careers. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
 </body>
 
 </html>
