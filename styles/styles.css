@@ -328,7 +328,7 @@ html {
 
     /*  Slide nav into view when checkbox is checked */
     .menu-toggle:checked + .hamburger-menu + .nav-links {
-        right: 0;
+       right: 0;
     }
 
     /* Animate burger into "X" */
