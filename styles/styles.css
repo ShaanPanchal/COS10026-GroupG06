@@ -960,7 +960,12 @@ html {
     margin-right: 30%;
     color:#86868b;
 }
+/*figure styling */
 
+#group-img{
+ min-width: 30%;
+ width: 90%;
+}
 
 
 
