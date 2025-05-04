@@ -946,8 +946,19 @@ html {
     margin-right: 30%;
     margin-left: 25%;
 }
+.getys{
+    list-style-type: none;
+    margin-right: 35%;
+    margin-left: 25%;
+}
 .plist{
     list-style-type: none;
+}
+
+.rolies{
+    margin-right: 30%;
+    margin-left: 25%;
+
 }
 
 .contact-us-in-headings {
