@@ -223,7 +223,7 @@ html {
 }
 
 .footer-logo img {
-    width: 80px;
+  width :80px;
     margin-bottom: 30px;
 }
 
@@ -953,7 +953,7 @@ html {
 
 /*more about us */
 .more-about-us{
-    color: #86868b;
+    color: #d4d4d7;
     margin-top: 0%;
     margin-bottom: 10%;
 }
@@ -984,21 +984,20 @@ th {
     background-color :#0c0c0c ;
 }
 
-
-
-.nav-links a.active {
-    color: #0077cc;
+#lewis-hamilton{
+    color: #f40404;
 }
-
-.reviews-in-about-page{
-    color: whitesmoke;
-}
-.reviews-in-about-page:hover{
-    color: #00aaff;
+#lewis-hamilton:hover    {
+color: #361ef0;
+text-shadow: #0077cc;
 }
 
 
-/* review page styling */
+
+
+
+
+/* REVEIEWS PAGE STYLING */
 
 body {
     margin: 0;
