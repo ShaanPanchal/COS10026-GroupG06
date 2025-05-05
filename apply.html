@@ -201,26 +201,27 @@ description: [html files it refers to careers.srn]
         <p>&copy; 2025 SRN Careers. All rights reserved.</p>
     </div>
 </footer>
-    <script>
-        // File upload display
-        document.getElementById('resume').addEventListener('change', function(e) {
-            const fileName = e.target.files[0] ? e.target.files[0].name : 'No file chosen';
-            document.querySelector('.file-name').textContent = fileName;
-        });
+<!-- Replace the entire script section with this HTML-based solution -->
 
-        // Form submission handler
-        document.getElementById('application-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Here you would normally collect and send the form data
-            // For this demo, we'll just redirect
-            window.location.href = 'thank-you.html';
-            
-            // In a real implementation, you would use:
-            // fetch() or XMLHttpRequest to send the data to your server
-            // Then redirect after successful submission
-        });
-    </script>
+<!-- File upload display - Add this right after the file input -->
+<div class="file-name" id="file-display">No file chosen</div>
+
+<!-- Modify the form to use HTML form submission -->
+<form id="application-form" action="thank-you.html" method="GET" enctype="multipart/form-data">
+    <!-- ... rest of your form fields ... -->
+    
+    <!-- Resume -->
+    <div class="form-group full-width">
+        <label for="resume">Upload Resume</label>
+        <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx" required 
+               onchange="document.getElementById('file-display').textContent = this.files[0] ? this.files[0].name : 'No file chosen'">
+    </div>
+    
+    <!-- Submit -->
+    <div class="form-group full-width">
+        <button type="submit" class="primary-button large">Submit Application</button>
+    </div>
+</form>
 </body>
 </html>
 
