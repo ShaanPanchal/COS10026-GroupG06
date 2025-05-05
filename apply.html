@@ -1,231 +1,194 @@
-
-<!----
-
+<!--
 filename: job application page (apply.html)
-
 author: [Shaan]
-
 created: [enter date]
-
 last modified: [enter date]
-
 description: [html files it refers to careers.srn]
-
----->
-
-
-
+-->
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Apply for Position | SRN Careers</title>
-    <link rel="stylesheet" href="styles/styles.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@300;400;500;600&display=swap">
-    <link rel="icon" href="images/logo.png" type="image/png">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Apply for Position | SRN Careers</title>
+  <link rel="stylesheet" href="styles/styles.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@300;400;500;600&display=swap" />
+  <link rel="icon" href="images/logo.png" type="image/png" />
 </head>
 <body>
-    <!-- Navigation Bar -->
-    <nav class="main-nav">
-        <div class="nav-container">
-            <a href="index.html" class="site-logo">
-                <img src="images/logo.png" alt="SRN Careers Logo" width="80"> 
-            </a>
-            <input type="checkbox" id="menu-toggle" class="menu-toggle">
-            <label for="menu-toggle" class="hamburger-menu" aria-label="Toggle Menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </label>
-            
-            <div class="nav-links">
-                <a class="homenva" href="index.html">Home</a>
-                <a href="jobs.html">Jobs</a>
-                <a href="apply.html" class="active">Apply</a>
-                <a href="about.html">About</a>
-            </div>
-            <a href="mailto:careers@srn.com" class="primary-button hideInMobile">Contact</a>
-        </div>
-    </nav>
 
-    <!-- Application Form Section -->
-    <section class="application-section">
-        <div class="form-container">
-          <h1 class="section-headline">Application Form</h1>
-          <p class="section-subhead">Complete the form below to apply for the position</p>
-      
-          <form id="application-form" action="thank-you.html" method="POST" enctype="multipart/form-data">
-            <div class="form-grid">
-              <!-- Job Reference -->
-              <div class="form-group full-width">
-                <label for="job-ref">Job Reference Number</label>
-                <select id="job-ref" name="job-ref" required>
-                  <option value="">Select job reference</option>
-                  <option value="CLOUD101">CLOUD101</option>
-                  <option value="DEVOPS202">DEVOPS202</option>
-                  <option value="SOFT303">SOFT303</option>
-                </select>
-              </div>
-      
-              <!-- First name -->
-              <div class="form-group">
-                <label for="first-name">First Name</label>
-                <input type="text" id="first-name" name="first-name" maxlength="20" pattern="[A-Za-z\s]+" required>
-              </div>
-      
-              <!-- Last name -->
-              <div class="form-group">
-                <label for="last-name">Last Name</label>
-                <input type="text" id="last-name" name="last-name" maxlength="20" pattern="[A-Za-z\s]+" required>
-              </div>
-      
-              <!-- DOB -->
-              <div class="form-group">
-                <label for="dob">Date of Birth</label>
-                <input type="text" id="dob" name="dob" placeholder="dd/mm/yyyy" pattern="\d{2}/\d{2}/\d{4}" required>
-              </div>
-      
-              <!-- Gender -->
-              <div class="form-group full-width">
-                <fieldset>
-                  <legend>Gender</legend>
-                  <label><input type="radio" name="gender" value="male" required> Male</label>
-                  <label><input type="radio" name="gender" value="female"> Female</label>
-                  <label><input type="radio" name="gender" value="other"> Other</label>
-                </fieldset>
-              </div>
-      
-              <!-- Street -->
-              <div class="form-group">
-                <label for="street">Street Address</label>
-                <input type="text" id="street" name="street" maxlength="40" required>
-              </div>
-      
-              <!-- Suburb -->
-              <div class="form-group">
-                <label for="suburb">Suburb/Town</label>
-                <input type="text" id="suburb" name="suburb" maxlength="40" required>
-              </div>
-      
-              <!-- State -->
-              <div class="form-group">
-                <label for="state">State</label>
-                <select id="state" name="state" required>
-                  <option value="">Select state</option>
-                  <option value="VIC">VIC</option>
-                  <option value="NSW">NSW</option>
-                  <option value="QLD">QLD</option>
-                  <option value="NT">NT</option>
-                  <option value="WA">WA</option>
-                  <option value="SA">SA</option>
-                  <option value="TAS">TAS</option>
-                  <option value="ACT">ACT</option>
-                </select>
-              </div>
-      
-              <!-- Postcode -->
-              <div class="form-group">
-                <label for="postcode">Postcode</label>
-                <input type="text" id="postcode" name="postcode" pattern="\d{4}" maxlength="4" required>
-              </div>
-      
-              <!-- Email -->
-              <div class="form-group">
-                <label for="email">Email Address</label>
-                <input type="email" id="email" name="email" required>
-              </div>
-      
-              <!-- Phone -->
-              <div class="form-group">
-                <label for="phone">Phone Number</label>
-                <input type="tel" id="phone" name="phone" pattern="[0-9 ]{8,12}" required>
-              </div>
-      
-              <!-- Skills checkbox -->
-              <div class="form-group full-width">
-                <fieldset>
-                  <legend>Technical Skills</legend>
-                  <label><input type="checkbox" name="skills" value="HTML"> HTML</label>
-                  <label><input type="checkbox" name="skills" value="CSS"> CSS</label>
-                  <label><input type="checkbox" name="skills" value="JavaScript"> JavaScript</label>
-                  <label><input type="checkbox" name="skills" value="Python"> Python</label>
-                </fieldset>
-              </div>
-      
-              <!-- Other skills -->
-              <div class="form-group full-width">
-                <label for="other-skills">Other Skills</label>
-                <textarea id="other-skills" name="other-skills" rows="4"></textarea>
-              </div>
-      
-              <!-- Resume -->
-              <div class="form-group full-width">
-                <label for="resume">Upload Resume</label>
-                <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx" required>
-              </div>
-      
-              <!-- Submit -->
-              <div class="form-group full-width">
-                <button type="submit" class="primary-button large">Submit Application</button>
-              </div>
-            </div>
-          </form>
-        </div>
-      </section>
+  <!-- Navigation Bar -->
+  <nav class="main-nav">
+    <div class="nav-container">
+      <a href="index.html" class="site-logo">
+        <img src="images/logo.png" alt="SRN Careers Logo" width="80" />
+      </a>
+      <input type="checkbox" id="menu-toggle" class="menu-toggle" />
+      <label for="menu-toggle" class="hamburger-menu" aria-label="Toggle Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
+      <div class="nav-links">
+        <a class="homenva" href="index.html">Home</a>
+        <a href="jobs.html">Jobs</a>
+        <a href="apply.html" class="active">Apply</a>
+        <a href="about.html">About</a>
+      </div>
+      <a href="mailto:careers@srn.com" class="primary-button hideInMobile">Contact</a>
+    </div>
+  </nav>
 
-   <!-- Footer -->
-   <footer class="main-footer">
+  <!-- Application Form Section -->
+  <section class="application-section">
+    <div class="form-container">
+      <h1 class="section-headline">Application Form</h1>
+      <p class="section-subhead">Complete the form below to apply for the position</p>
+
+      <form id="application-form" action="thank-you.html" method="POST" enctype="multipart/form-data">
+        <div class="form-grid">
+
+          <!-- Job Reference -->
+          <div class="form-group full-width">
+            <label for="job-ref">Job Reference Number</label>
+            <select id="job-ref" name="job-ref" required>
+              <option value="">Select job reference</option>
+              <option value="CLOUD101">CLOUD101</option>
+              <option value="DEVOPS202">DEVOPS202</option>
+              <option value="SOFT303">SOFT303</option>
+            </select>
+          </div>
+
+          <!-- First and Last Name -->
+          <div class="form-group">
+            <label for="first-name">First Name</label>
+            <input type="text" id="first-name" name="first-name" maxlength="20" pattern="[A-Za-z\s]+" required />
+          </div>
+
+          <div class="form-group">
+            <label for="last-name">Last Name</label>
+            <input type="text" id="last-name" name="last-name" maxlength="20" pattern="[A-Za-z\s]+" required />
+          </div>
+
+          <!-- DOB -->
+          <div class="form-group">
+            <label for="dob">Date of Birth</label>
+            <input type="text" id="dob" name="dob" placeholder="dd/mm/yyyy" pattern="\d{2}/\d{2}/\d{4}" required />
+          </div>
+
+          <!-- Gender -->
+          <div class="form-group full-width">
+            <fieldset>
+              <legend>Gender</legend>
+              <label><input type="radio" name="gender" value="male" required /> Male</label>
+              <label><input type="radio" name="gender" value="female" /> Female</label>
+              <label><input type="radio" name="gender" value="other" /> Other</label>
+            </fieldset>
+          </div>
+
+          <!-- Address -->
+          <div class="form-group">
+            <label for="street">Street Address</label>
+            <input type="text" id="street" name="street" maxlength="40" required />
+          </div>
+
+          <div class="form-group">
+            <label for="suburb">Suburb/Town</label>
+            <input type="text" id="suburb" name="suburb" maxlength="40" required />
+          </div>
+
+          <!-- State and Postcode -->
+          <div class="form-group">
+            <label for="state">State</label>
+            <select id="state" name="state" required>
+              <option value="">Select state</option>
+              <option value="VIC">VIC</option>
+              <option value="NSW">NSW</option>
+              <option value="QLD">QLD</option>
+              <option value="NT">NT</option>
+              <option value="WA">WA</option>
+              <option value="SA">SA</option>
+              <option value="TAS">TAS</option>
+              <option value="ACT">ACT</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="postcode">Postcode</label>
+            <input type="text" id="postcode" name="postcode" pattern="\d{4}" maxlength="4" required />
+          </div>
+
+          <!-- Contact -->
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" required />
+          </div>
+
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" pattern="[0-9 ]{8,12}" required />
+          </div>
+
+          <!-- Skills -->
+          <div class="form-group full-width">
+            <fieldset>
+              <legend>Technical Skills</legend>
+              <label><input type="checkbox" name="skills" value="HTML" /> HTML</label>
+              <label><input type="checkbox" name="skills" value="CSS" /> CSS</label>
+              <label><input type="checkbox" name="skills" value="JavaScript" /> JavaScript</label>
+              <label><input type="checkbox" name="skills" value="Python" /> Python</label>
+            </fieldset>
+          </div>
+
+          <!-- Other Skills -->
+          <div class="form-group full-width">
+            <label for="other-skills">Other Skills</label>
+            <textarea id="other-skills" name="other-skills" rows="4"></textarea>
+          </div>
+
+          <!-- ✅ Resume Upload (native file input) -->
+          <div class="form-group full-width">
+            <label for="resume">Upload Resume</label>
+            <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx" required />
+          </div>
+
+          <!-- ✅ Submit Button -->
+          <div class="form-group full-width">
+            <button type="submit" class="primary-button large">Submit Application</button>
+          </div>
+
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="main-footer">
     <div class="footer-container">
       <div class="footer-logo">
-            <img src="images/logo.png" alt="SRN Careers Logo" width="80">
-        </div>
-          <div class="footers-links">
-            <div class="footer-section">
-                <div>
-                <h4>Services</h4>
-                <a href="jobs.html">Executive Search</a>
-                <a href="jobs.html">Contract Staffing</a>
-                <a href="jobs.html">Consulting</a>
-                </div>
-                <div>
-                <h4>Resources</h4>
-                <a href="about.html">About Us</a>
-                <a href="privacy.html">Privacy Policy</a>
-                </div>
-            </div>
+        <img src="images/logo.png" alt="SRN Careers Logo" width="80" />
+      </div>
+      <div class="footers-links">
+        <div class="footer-section">
+          <div>
+            <h4>Services</h4>
+            <a href="jobs.html">Executive Search</a>
+            <a href="jobs.html">Contract Staffing</a>
+            <a href="jobs.html">Consulting</a>
+          </div>
+          <div>
+            <h4>Resources</h4>
+            <a href="about.html">About Us</a>
+            <a href="privacy.html">Privacy Policy</a>
           </div>
         </div>
+      </div>
+    </div>
     <div class="footer-bottom">
-        <p>&copy; 2025 SRN Careers. All rights reserved.</p>
+      <p>&copy; 2025 SRN Careers. All rights reserved.</p>
     </div>
-</footer>
-<!-- Replace the entire script section with this HTML-based solution -->
+  </footer>
 
-<!-- File upload display - Add this right after the file input -->
-<div class="file-name" id="file-display">No file chosen</div>
-
-<!-- Modify the form to use HTML form submission -->
-<form id="application-form" action="thank-you.html" method="GET" enctype="multipart/form-data">
-    <!-- ... rest of your form fields ... -->
-    
-    <!-- Resume -->
-    <div class="form-group full-width">
-        <label for="resume">Upload Resume</label>
-        <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx" required 
-               onchange="document.getElementById('file-display').textContent = this.files[0] ? this.files[0].name : 'No file chosen'">
-    </div>
-    
-    <!-- Submit -->
-    <div class="form-group full-width">
-        <button type="submit" class="primary-button large">Submit Application</button>
-    </div>
-</form>
 </body>
 </html>
-
-
-<!--ACKNOLEDGEMNENTS FOR USE OF AI AS PER HARVARD REFRENCE-->
-<!--OpenAI. (2024). ChatGPT [Large language model]. Available at: https://chat.openai.com/-!>
-<!-i have used AI for the generation of description content and image genration i have used open ai-!>
