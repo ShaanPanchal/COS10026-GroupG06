@@ -205,6 +205,7 @@ html {
 }
 
 /* footer */
+
 .main-footer {
     background: #1d1d1f;
     border-top: 1px solid #333;
@@ -232,36 +233,8 @@ html {
     margin-bottom: 30px;
     margin-right: 40% ;
 }
-.footerslinks{
-    display: flex;
-    gap: 60px;
-    margin-bottom: 30px;
-    margin-right: 20% ;
-    margin-left: 30%;
-}
 
-.link-column {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-}
 
-.link-column h4 {
-    font: size 20px; 
-    font-weight: 600;
-    color: #86868b;
-    margin-bottom: 8px;
-}
-
-.link-column a {
-    color: #ccc;
-    text-decoration: none;
-    font-size: 12px;
-}
-
-.link-column a:hover {
-    color: #0071e3;
-}
 
 .footer-section {
     position: absolute;
@@ -269,6 +242,7 @@ html {
     transform: translateX(-50%);
     display: flex;
     gap: 50px;
+    margin-top: -30px;
 }
 
 .footer-section div {
@@ -293,11 +267,11 @@ html {
 }
 
 .footer-bottom {
-    text-align: center;
-    margin-top: 30px;
+    margin-bottom: -40px;
+    margin: 30px;
     font-size: 12px;
     border-top: 1px solid #444;
-    padding-top: 15px;
+    padding: 15px;
 }
 
 
@@ -394,7 +368,13 @@ html {
 
 
 
-/* jobs page styling*/
+/* JOBS PAGE STYLING */
+
+
+
+
+
+
 
 body {
     font-family: Arial, sans-serif;
@@ -404,16 +384,11 @@ body {
     color: white;
     text-align: center;
 }
-
 /*body styling*/
-
 main {
     padding: 40px;
 }
-
 /* main word content styling*/
-
-
 .job-container {
     display: flex;
     justify-content: center; 
@@ -421,7 +396,6 @@ main {
     flex-direction: row-reverse;
     gap: 20px;
 }
-
 .job-card {
     background: #1d1d1f;
     padding: 20px;
@@ -531,23 +505,6 @@ aside p:hover{
     color: #f5f5f7;
 }
 
-/* footer styling */
-
-
-.footer-containers {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    max-width: 1200px;
-    margin: 0 auto;
-    position: relative;
-}
-
-.footer-logo img {
-    width: 120px; 
-}
-
-
 /* styling header */
 header{
     background-color: rgba(22, 22, 23, 0.8);
@@ -593,7 +550,15 @@ header{
   }
 
 
-  /* ===== APPLICATION FORM ===== */
+
+
+
+
+/* ===== APPLICATION FORM ===== */
+
+
+
+
 .application-section {
     max-width: 1200px;
     margin: 0 auto;
