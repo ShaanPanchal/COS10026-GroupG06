@@ -373,9 +373,6 @@ html {
 
 
 
-
-
-
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -547,9 +544,13 @@ header{
 .job-container {
     flex-direction: row;
     align-items: center;
-  }
+}
 
 
+.job-availability{
+    list-style-type: none;
+    margin-left: -10%;
+}
 
 
 
