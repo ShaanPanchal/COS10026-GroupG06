@@ -1,40 +1,70 @@
 <?php
-$pageTitle = "Job Descriptions | SRN Careers";
+$pageTitle = "Job Listings | SRN Careers";
 require_once 'header.inc';
 require_once 'nav.inc';
+require_once 'settings.php'; // Database connection
 ?>
 
 <main>
     <section class="job-listings">
-        <h1 class="hero-headline">Job description</h1>
+        <h1 class="hero-headline">Job Descriptions</h1>
         <h2 class="hero-subhead">CLOUD ENGINEERS</h2>
         <div class="job-container">
 
-            <article class="job-card">
-                <h3>Software Engineer<br>SOFT303</h3>
-                <p>📍 Melbourne&comma; VIC</p>
-                <p>⏰ Full time</p>
-                <p>💰 180,000</p>
-                <p>🧭 Availability:</p>
-                <ul class="job-availability">
-                    <li>In Person</li>
-                    <br>
-                    <li>Virtually</li>
-                </ul>
-                <div class="job-footer">
-                    <details class="job-description">
-                        <summary>View Description</summary>
-                        <div>
-                            <p>We are looking for a Software Engineer to design and build scalable cloud-native applications...</p>
-                            <!-- Rest of job description content -->
-                        </div>
-                    </details>
-                    <a href="apply.php" class="apply-btn">Apply</a>
-                </div>
-            </article>
+            <?php
+            // Connect to database and fetch jobs
+            $conn = mysqli_connect($host, $user, $pwd, $sql_db);
+            if (!$conn) {
+                die("Connection failed: " . mysqli_connect_error());
+            }
 
-            <!-- Other job cards here -->
+            $query = "SELECT * FROM jobs";
+            $result = mysqli_query($conn, $query);
 
+            while ($row = mysqli_fetch_assoc($result)) {
+                echo '<article class="job-card">';
+                echo '<h3>' . htmlspecialchars($row['job_title']) . '<br>' . htmlspecialchars($row['job_reference']) . '</h3>';
+                echo '<p>📍 ' . htmlspecialchars($row['location']) . '</p>';
+                echo '<p>⏰ ' . htmlspecialchars($row['position_type']) . '</p>';
+                echo '<p>💰 ' . htmlspecialchars($row['salary_range']) . '</p>';
+                
+                // Availability (you might need to adjust this based on your DB structure)
+                echo '<p>🧭 Availability:</p>';
+                echo '<ul class="job-availability">';
+                echo '<li>' . (strpos($row['location'], 'Melbourne') !== false ? 'In Person' : 'Virtually') . '</li>';
+                echo '</ul>';
+                
+                echo '<div class="job-footer">';
+                echo '<details class="job-description">';
+                echo '<summary>View Description</summary>';
+                echo '<div>';
+                echo '<p>' . htmlspecialchars($row['job_description']) . '</p>';
+                
+                echo '<strong>Key Responsibilities:</strong>';
+                echo '<ul>';
+                $responsibilities = explode("\n", $row['key_responsibilities']);
+                foreach ($responsibilities as $item) {
+                    echo '<li>' . htmlspecialchars(trim($item)) . '</li>';
+                }
+                echo '</ul>';
+                
+                echo '<strong>Essential Requirements:</strong>';
+                echo '<ul>';
+                $requirements = explode("\n", $row['essential_requirements']);
+                foreach ($requirements as $item) {
+                    echo '<li>' . htmlspecialchars(trim($item)) . '</li>';
+                }
+                echo '</ul>';
+                
+                echo '</div>';
+                echo '</details>';
+                echo '<a href="apply.php?job_ref=' . urlencode($row['job_reference']) . '" class="apply-btn">Apply</a>';
+                echo '</div>';
+                echo '</article>';
+            }
+            
+            mysqli_close($conn);
+            ?>
         </div>
     </section>
 </main>

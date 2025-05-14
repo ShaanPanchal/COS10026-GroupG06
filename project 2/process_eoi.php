@@ -10,6 +10,7 @@ if ($_SERVER["REQUEST_METHOD"] != "POST") {
     exit();
 }
 
+
 // Process form data and insert into database
 // Add your validation and database insertion code here
 
