@@ -1,0 +1,14 @@
+<?php
+// Database connection settings
+$host = "localhost";
+$user = "your_username";
+$pwd = "your_password";
+$sql_db = "your_database_name";
+
+// Site-wide settings
+$site_name = "SRN Careers";
+$admin_email = "careers@srn.com";
+
+// Error reporting for development
+error_reporting(E_ALL);
+ini_set('display_errors', 1);

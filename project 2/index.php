@@ -1,0 +1,36 @@
+<?php
+$pageTitle = "SRN Careers | Talent Acquisition";
+require_once 'header.inc';
+require_once 'nav.inc';
+?>
+
+<section class="hero-section">
+    <div class="hero-content">
+        <h1 class="hero-headline">Career Excellence.<br>Redefined.</h1>
+        <p class="hero-subhead">2025 Talent Solutions</p>   
+        <a href="jobs.php" class="primary-button large">View Positions</a>
+    </div>
+</section>
+
+<section class="benefits-section">
+    <h2 class="section-headline">Why Partner With Us</h2>
+    <div class="benefits-grid">
+        <div class="benefit-card">
+            <div class="benefit-icon">✓</div>
+            <h3>Strategic Matching</h3>
+            <p>Precision alignment of talent to organizational needs</p>
+        </div>
+        <div class="benefit-card">
+            <div class="benefit-icon">⌚</div>
+            <h3>Efficient Process</h3>
+            <p>Streamlined recruitment lifecycle</p>
+        </div>
+        <div class="benefit-card">
+            <div class="benefit-icon">★</div>
+            <h3>Premium Network</h3>
+            <p>Access to top-tier professionals</p>
+        </div>
+    </div>
+</section>
+
+<?php require_once 'footer.inc'; ?>
