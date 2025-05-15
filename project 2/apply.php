@@ -37,7 +37,7 @@ $skill2 = isset($skillsArray[1]) ? sanitise($skillsArray[1]) : '';
 // Connect to database
 $conn = @mysqli_connect($host, $user, $pwd, $sql_db);
 if (!$conn) {
-    die("<main><p>Database connection failure.</p></main>");
+    die("<main><p> uh oh !! dosent seem right 👻 <br> Database connection failure.</p></main>");
 }
 
 // Auto-create `eoi` table if not exists
