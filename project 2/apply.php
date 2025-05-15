@@ -1,146 +1,119 @@
 <?php
-$pageTitle = "Apply for Position | SRN Careers";
+$pageTitle = "Processing Application";
 require_once 'header.inc';
 require_once 'nav.inc';
-require_once 'settings.php'; // Database connection
+require_once 'settings.php';
 
-// Get job reference from URL if present
-$selectedJobRef = isset($_GET['job_ref']) ? htmlspecialchars($_GET['job_ref']) : '';
+// Redirect if accessed directly
+if ($_SERVER["REQUEST_METHOD"] != "POST") {
+    header("Location: apply.php");
+    exit();
+}
+
+// Sanitisation function
+function sanitise($data) {
+    return htmlspecialchars(stripslashes(trim($data)));
+}
+
+// Get and sanitise inputs
+$job_ref_number = sanitise($_POST["job_ref_number"]);
+$first_name = sanitise($_POST["first_name"]);
+$last_name = sanitise($_POST["last_name"]);
+$dob = sanitise($_POST["dob"]);
+$gender = sanitise($_POST["gender"]);
+$street_address = sanitise($_POST["street_address"]);
+$suburb = sanitise($_POST["suburb"]);
+$state = sanitise($_POST["state"]);
+$postcode = sanitise($_POST["postcode"]);
+$email = sanitise($_POST["email"]);
+$phone = sanitise($_POST["phone"]);
+$other_skills = sanitise($_POST["other_skills"]);
+
+// Skills handling
+$skillsArray = isset($_POST["skills"]) ? $_POST["skills"] : [];
+$skill1 = isset($skillsArray[0]) ? sanitise($skillsArray[0]) : '';
+$skill2 = isset($skillsArray[1]) ? sanitise($skillsArray[1]) : '';
+
+// Connect to database
+$conn = @mysqli_connect($host, $user, $pwd, $sql_db);
+if (!$conn) {
+    die("<main><p>Database connection failure.</p></main>");
+}
+
+// Auto-create `eoi` table if not exists
+$table_check_query = "SHOW TABLES LIKE 'eoi'";
+$result = mysqli_query($conn, $table_check_query);
+if (mysqli_num_rows($result) == 0) {
+    $create_table_query = "
+    CREATE TABLE eoi (
+        EOInumber INT AUTO_INCREMENT PRIMARY KEY,
+        job_ref_number VARCHAR(10),
+        first_name VARCHAR(20),
+        last_name VARCHAR(20),
+        dob VARCHAR(10),
+        gender VARCHAR(10),
+        street_address VARCHAR(40),
+        suburb VARCHAR(40),
+        state ENUM('VIC','NSW','QLD','NT','WA','SA','TAS','ACT'),
+        postcode CHAR(4),
+        email VARCHAR(100),
+        phone VARCHAR(12),
+        skill1 VARCHAR(50),
+        skill2 VARCHAR(50),
+        other_skills TEXT,
+        status ENUM('New','Current','Final') DEFAULT 'New'
+    )";
+    mysqli_query($conn, $create_table_query);
+}
+
+// Validation
+$errors = [];
+if (!preg_match("/^[a-zA-Z]{1,20}$/", $first_name)) $errors[] = "Invalid first name.";
+if (!preg_match("/^[a-zA-Z]{1,20}$/", $last_name)) $errors[] = "Invalid last name.";
+if (!preg_match("/^\d{2}\/\d{2}\/\d{4}$/", $dob)) $errors[] = "Invalid date of birth format.";
+if (!in_array($gender, ['male', 'female', 'other'])) $errors[] = "Invalid gender selected.";
+if (!preg_match("/^\d{4}$/", $postcode)) $errors[] = "Postcode must be 4 digits.";
+if (!filter_var($email, FILTER_VALIDATE_EMAIL)) $errors[] = "Invalid email format.";
+if (!preg_match("/^[0-9 ]{8,12}$/", $phone)) $errors[] = "Phone number must be 8-12 digits or spaces.";
+if (!in_array($state, ['VIC','NSW','QLD','NT','WA','SA','TAS','ACT'])) $errors[] = "Invalid state selected.";
+if (empty($skill1)) $errors[] = "At least one technical skill must be selected.";
+
+// If there are errors, show them and exit
+if (!empty($errors)) {
+    echo "<main><h2>Validation Errors</h2><ul>";
+    foreach ($errors as $error) {
+        echo "<li>$error</li>";
+    }
+    echo "</ul><a href='apply.php'>Go back and fix them</a></main>";
+    require_once 'footer.inc';
+    exit();
+}
+
+// Insert into database
+$insert_query = "INSERT INTO eoi (
+    job_ref_number, first_name, last_name, dob, gender,
+    street_address, suburb, state, postcode,
+    email, phone, skill1, skill2, other_skills
+) VALUES (
+    '$job_ref_number', '$first_name', '$last_name', '$dob', '$gender',
+    '$street_address', '$suburb', '$state', '$postcode',
+    '$email', '$phone', '$skill1', '$skill2', '$other_skills'
+)";
+$insert_result = mysqli_query($conn, $insert_query);
+
+if ($insert_result) {
+    $newEoiNumber = mysqli_insert_id($conn);
+} else {
+    die("<main><p>Failed to submit your application. 🥶 Please try again later.</p></main>");
+}
+
+mysqli_close($conn);
 ?>
 
-<!-- Application Form Section -->
-<section class="application-section">
-    <div class="form-container">
-        <h1 class="section-headline">Application Form</h1>
-        <p class="section-subhead">Complete the form below to apply for the position</p>
-
-        <form id="application-form" action="process_eoi.php" method="POST" enctype="multipart/form-data" novalidate="novalidate">
-            <div class="form-grid">
-
-                <!-- Job Reference -->
-                <div class="form-group full-width">
-                    <label for="job-ref">Job Reference Number</label>
-                    <select id="job-ref" name="job_ref" required>
-                        <option value="">Select job reference</option>
-                        <?php
-                        // Connect to database and fetch job references
-                        $conn = mysqli_connect($host, $user, $pwd, $sql_db);
-                        if ($conn) {
-                            $query = "SELECT job_reference FROM jobs";
-                            $result = mysqli_query($conn, $query);
-                            
-                            while ($row = mysqli_fetch_assoc($result)) {
-                                $selected = ($row['job_reference'] == $selectedJobRef) ? 'selected' : '';
-                                echo '<option value="' . htmlspecialchars($row['job_reference']) . '" ' . $selected . '>' 
-                                     . htmlspecialchars($row['job_reference']) . '</option>';
-                            }
-                            mysqli_close($conn);
-                        }
-                        ?>
-                    </select>
-                </div>
-
-                <!-- First and Last Name -->
-                <div class="form-group">
-                    <label for="first-name">First Name</label>
-                    <input type="text" id="first-name" name="first_name" maxlength="20" pattern="[A-Za-z\s]+" required />
-                </div>
-
-                <div class="form-group">
-                    <label for="last-name">Last Name</label>
-                    <input type="text" id="last-name" name="last_name" maxlength="20" pattern="[A-Za-z\s]+" required />
-                </div>
-
-                <!-- DOB -->
-                <div class="form-group">
-                    <label for="dob">Date of Birth</label>
-                    <input type="text" id="dob" name="dob" placeholder="dd/mm/yyyy" pattern="\d{2}/\d{2}/\d{4}" required />
-                </div>
-
-                <!-- Gender -->
-                <div class="form-group full-width">
-                    <fieldset>
-                        <legend>Gender</legend>
-                        <label><input type="radio" name="gender" value="male" required /> Male</label>
-                        <label><input type="radio" name="gender" value="female" /> Female</label>
-                        <label><input type="radio" name="gender" value="other" /> Other</label>
-                    </fieldset>
-                </div>
-
-                <!-- Address -->
-                <div class="form-group">
-                    <label for="street">Street Address</label>
-                    <input type="text" id="street" name="street_address" maxlength="40" required />
-                </div>
-
-                <div class="form-group">
-                    <label for="suburb">Suburb/Town</label>
-                    <input type="text" id="suburb" name="suburb_town" maxlength="40" required />
-                </div>
-
-                <!-- State and Postcode -->
-                <div class="form-group">
-                    <label for="state">State</label>
-                    <select id="state" name="state" required>
-                        <option value="">Select state</option>
-                        <option value="VIC">VIC</option>
-                        <option value="NSW">NSW</option>
-                        <option value="QLD">QLD</option>
-                        <option value="NT">NT</option>
-                        <option value="WA">WA</option>
-                        <option value="SA">SA</option>
-                        <option value="TAS">TAS</option>
-                        <option value="ACT">ACT</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label for="postcode">Postcode</label>
-                    <input type="text" id="postcode" name="postcode" pattern="\d{4}" maxlength="4" required />
-                </div>
-
-                <!-- Contact -->
-                <div class="form-group">
-                    <label for="email">Email Address</label>
-                    <input type="email" id="email" name="email" required />
-                </div>
-
-                <div class="form-group">
-                    <label for="phone">Phone Number</label>
-                    <input type="tel" id="phone" name="phone" pattern="[0-9 ]{8,12}" required />
-                </div>
-
-                <!-- Skills -->
-                <div class="form-group full-width">
-                    <fieldset>
-                        <legend>Technical Skills</legend>
-                        <label><input type="checkbox" name="skills[]" value="HTML" /> HTML</label>
-                        <label><input type="checkbox" name="skills[]" value="CSS" /> CSS</label>
-                        <label><input type="checkbox" name="skills[]" value="JavaScript" /> JavaScript</label>
-                        <label><input type="checkbox" name="skills[]" value="Python" /> Python</label>
-                    </fieldset>
-                </div>
-
-                <!-- Other Skills -->
-                <div class="form-group full-width">
-                    <label for="other-skills">Other Skills</label>
-                    <textarea id="other-skills" name="other_skills" rows="4"></textarea>
-                </div>
-
-                <!-- Resume Upload-->
-                <div class="form-group full-width">
-                    <label for="resume">Upload Resume</label>
-                    <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx" required />
-                </div>
-
-                <!--Submit Button -->
-                <div class="form-group full-width">
-                    <button type="submit" class="primary-button large">Submit Application</button>
-                </div>
-
-            </div>
-        </form>
-    </div>
-</section>
+<main class="confirmation-section">
+    <h1>Application Received</h1>
+    <p>Thanks for applying! Your EOI number is: <strong><?php echo $newEoiNumber; ?></strong></p>
+    <a href="jobs.php" class="primary-button">Back to Jobs</a>
+</main>
 
 <?php require_once 'footer.inc'; ?>
