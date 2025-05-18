@@ -1,4 +1,4 @@
-<form action="process_eoi.php" method="POST" novalidate>
+<form action="/project2/process_eoi.php" method="POST" novalidate>
   <div class="form-grid">
 
     <!-- Job Reference -->
