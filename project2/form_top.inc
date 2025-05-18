@@ -5,8 +5,9 @@
     <div class="form-group full-width">
       <label for="job_ref_number">Job Reference</label>
       <select id="job_ref_number" name="job_ref_number" required>
-        <option value="" disabled selected>Select Job Reference</option>
+        <option value="">Select Job Reference</option>
         <?php
+        $selectedJobRef = $selectedJobRef ?? ''; // safely fallback if not set
         $conn = mysqli_connect($host, $user, $pwd, $sql_db);
         if ($conn) {
           $query = "SELECT job_reference FROM jobs";
@@ -17,7 +18,7 @@
           }
           mysqli_close($conn);
         } else {
-          echo '<option disabled>Error loading jobs</option>';
+          echo '<option value="">Database connection error</option>';
         }
         ?>
       </select>
