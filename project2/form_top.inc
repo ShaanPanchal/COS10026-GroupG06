@@ -1,11 +1,11 @@
-<form action="/project2/process_eoi.php" method="POST" novalidate>
+<form action="process_eoi.php" method="POST" novalidate>
   <div class="form-grid">
 
     <!-- Job Reference -->
     <div class="form-group full-width">
       <label for="job_ref_number">Job Reference</label>
       <select id="job_ref_number" name="job_ref_number" required>
-        <option value="">Select Job Reference</option>
+        <option value="" disabled selected>Select Job Reference</option>
         <?php
         $conn = mysqli_connect($host, $user, $pwd, $sql_db);
         if ($conn) {
@@ -16,6 +16,8 @@
             echo '<option value="' . htmlspecialchars($row['job_reference']) . '" ' . $selected . '>' . htmlspecialchars($row['job_reference']) . '</option>';
           }
           mysqli_close($conn);
+        } else {
+          echo '<option disabled>Error loading jobs</option>';
         }
         ?>
       </select>
