@@ -12,9 +12,9 @@ $selectedJobRef = isset($_GET['job_ref']) ? htmlspecialchars($_GET['job_ref']) :
     <h1 class="section-headline">Application Form</h1>
     <div class="form-container">
       <?php
-        include 'form_top.inc';     // Contains <form> start and Job Reference
-        include 'form_fields.inc';  // Contains all personal + contact + skills inputs
-        include 'form_submit.inc';  // Contains the submit button and closing tags
+        include 'form_top.inc';     
+        include 'form_fields.inc';  
+        include 'form_submit.inc';  
       ?>
     </div>
   </section>

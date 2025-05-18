@@ -11,7 +11,7 @@ require_once 'nav.inc';
         <h1 class="hero-headline">Career Excellence.<br>Redefined.</h1>
         <p class="hero-subhead">2025 Talent Solutions</p>
 
-        <!-- 👋 Greet user if logged in -->
+        <!-- Greet user if logged in -->
         <?php if (isset($_SESSION['eoi_number'])): ?>
             <p style="margin-top: 15px; font-size: 18px; color: #444;">
                 Welcome back, applicant #<?php echo $_SESSION['eoi_number']; ?> 👋

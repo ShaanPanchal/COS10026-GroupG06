@@ -1,3 +1,6 @@
+
+
+
 <form action="process_eoi.php" method="POST" novalidate>
   <div class="form-grid">
 
@@ -7,7 +10,7 @@
       <select id="job_ref_number" name="job_ref_number" required>
         <option value="">Select Job Reference</option>
         <?php
-        $selectedJobRef = $selectedJobRef ?? ''; // safely fallback if not set
+        $selectedJobRef = $selectedJobRef ?? ''; 
         $conn = mysqli_connect($host, $user, $pwd, $sql_db);
         if ($conn) {
           $query = "SELECT job_reference FROM jobs";
