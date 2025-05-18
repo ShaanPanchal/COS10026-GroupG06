@@ -1081,4 +1081,92 @@ body {
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
+  /* Manage EOIs Page Styling */
+
+.mgmt-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px 22px;
+    background-color: #000;
+    color: #f5f5f7;
+  }
   
+  .mgmt-title {
+    font-size: 36px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 40px;
+    color: #0077cc;
+  }
+  
+  .mgmt-empty {
+    text-align: center;
+    font-size: 18px;
+    color: #bbb;
+    margin-top: 50px;
+  }
+  
+  .mgmt-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 40px;
+    color: #f5f5f7;
+    font-size: 14px;
+  }
+  
+  .mgmt-table th,
+  .mgmt-table td {
+    border: 1px solid #333;
+    padding: 12px;
+    text-align: center;
+  }
+  
+  .mgmt-table th {
+    background-color: #1d1d1f;
+    color: #ccc;
+    font-weight: 600;
+  }
+  
+  .mgmt-table td {
+    background-color: #1a1a1a;
+  }
+  
+  .mgmt-status-form {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    justify-content: center;
+  }
+  
+  .mgmt-select {
+    padding: 6px 12px;
+    border-radius: 6px;
+    background-color: #1d1d1f;
+    color: #f5f5f7;
+    border: 1px solid #444;
+  }
+  
+  .mgmt-update {
+    background-color: #0071e3;
+    color: white;
+    border: none;
+    padding: 6px 14px;
+    border-radius: 980px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .mgmt-update:hover {
+    background-color: #0077ed;
+  }
+  
+  @media (max-width: 768px) {
+    .mgmt-table {
+      font-size: 12px;
+    }
+  
+    .mgmt-status-form {
+      flex-direction: column;
+    }
+  }

@@ -1,4 +1,5 @@
 <?php
+session_start();
 $pageTitle = "Processing Application";
 require_once 'header.inc';
 require_once 'nav.inc';
@@ -10,12 +11,11 @@ if ($_SERVER["REQUEST_METHOD"] != "POST") {
     exit();
 }
 
-// Function to clean input
 function sanitise($data) {
     return htmlspecialchars(stripslashes(trim($data)));
 }
 
-// Get and sanitise form inputs
+// Form inputs
 $job_ref_number = sanitise($_POST["job_ref_number"]);
 $first_name = sanitise($_POST["first_name"]);
 $last_name = sanitise($_POST["last_name"]);
@@ -29,9 +29,7 @@ $skill1 = isset($_POST["skill1"]) ? sanitise($_POST["skill1"]) : '';
 $skill2 = isset($_POST["skill2"]) ? sanitise($_POST["skill2"]) : '';
 $other_skills = sanitise($_POST["other_skills"]);
 
-// Basic Validation (you can add more)
 $errors = [];
-
 if (!preg_match("/^[a-zA-Z]{1,20}$/", $first_name)) $errors[] = "Invalid first name.";
 if (!preg_match("/^[a-zA-Z]{1,20}$/", $last_name)) $errors[] = "Invalid last name.";
 if (!preg_match("/^\d{4}$/", $postcode)) $errors[] = "Postcode must be 4 digits.";
@@ -40,15 +38,12 @@ if (!preg_match("/^[0-9 ]{8,12}$/", $phone)) $errors[] = "Invalid phone number."
 
 if (!empty($errors)) {
     echo "<main><h2>Error</h2><ul>";
-    foreach ($errors as $error) {
-        echo "<li>$error</li>";
-    }
+    foreach ($errors as $error) echo "<li>$error</li>";
     echo "</ul><a href='apply.php'>Go back</a></main>";
     require_once 'footer.inc';
     exit();
 }
 
-// Connect to database
 $conn = @mysqli_connect($host, $user, $pwd, $sql_db);
 if (!$conn) {
     echo "<main><p>Database connection failed. Please try again later.</p></main>";
@@ -56,17 +51,54 @@ if (!$conn) {
     exit();
 }
 
+// Ensure table has username and password fields
+$tableCheck = mysqli_query($conn, "SHOW COLUMNS FROM eoi LIKE 'username'");
+if (mysqli_num_rows($tableCheck) == 0) {
+    mysqli_query($conn, "ALTER TABLE eoi ADD username VARCHAR(50) UNIQUE, ADD password VARCHAR(255)");
+}
+
+// Generate unique username
+function generateUsername($firstName, $lastName, $conn) {
+    $base = strtolower(substr($firstName, 0, 3) . substr($lastName, 0, 3));
+    do {
+        $username = $base . rand(100, 999);
+        $check = mysqli_query($conn, "SELECT * FROM eoi WHERE username = '$username'");
+    } while (mysqli_num_rows($check) > 0);
+    return $username;
+}
+
+// Generate password
+function generatePassword($length = 8) {
+    $chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+    $pass = '';
+    for ($i = 0; $i < $length; $i++) {
+        $pass .= $chars[random_int(0, strlen($chars) - 1)];
+    }
+    return $pass;
+}
+
+$username = generateUsername($first_name, $last_name, $conn);
+$password = generatePassword();
+$hashed_password = password_hash($password, PASSWORD_DEFAULT);
+
 // Insert into eoi table
 $query = "INSERT INTO eoi (
-    job_ref_number, first_name, last_name, street_address, suburb, state, postcode, email, phone, skill1, skill2, other_skills
+    job_ref_number, first_name, last_name, street_address, suburb, state, postcode,
+    email, phone, skill1, skill2, other_skills, username, password
 ) VALUES (
-    '$job_ref_number', '$first_name', '$last_name', '$street_address', '$suburb', '$state', '$postcode', '$email', '$phone', '$skill1', '$skill2', '$other_skills'
+    '$job_ref_number', '$first_name', '$last_name', '$street_address', '$suburb', '$state', '$postcode',
+    '$email', '$phone', '$skill1', '$skill2', '$other_skills', '$username', '$hashed_password'
 )";
 
 $result = mysqli_query($conn, $query);
 
 if ($result) {
     $newEoiNumber = mysqli_insert_id($conn);
+    $_SESSION['last_eoi_number'] = $newEoiNumber;
+    $_SESSION['generated_username'] = $username;
+    $_SESSION['generated_password'] = $password;
+    header("Location: thankyou.php");
+    exit();
 } else {
     echo "<main><p>Something went wrong, 😔 couldn't submit application.</p></main>";
     require_once 'footer.inc';
@@ -75,11 +107,3 @@ if ($result) {
 
 mysqli_close($conn);
 ?>
-
-<main class="confirmation-section">
-    <h1>Application Received</h1>
-    <p>Thank you for your application. Your EOI number is: <?php echo $newEoiNumber; ?></p>
-    <a href="jobs.php" class="primary-button">Back to Jobs</a>
-</main>
-
-<?php require_once 'footer.inc'; ?>

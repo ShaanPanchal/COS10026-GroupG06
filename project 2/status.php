@@ -1,47 +1,47 @@
 <?php
 session_start();
-$pageTitle = "Application Status | SRN Careers";
 require_once 'header.inc';
 require_once 'nav.inc';
 require_once 'settings.php';
 
-// Check if they're logged in
 if (!isset($_SESSION['eoi_number'])) {
     header("Location: login.php");
     exit();
 }
 
-$eoi = null;
-$conn = @mysqli_connect($host, $user, $pwd, $sql_db);
-if ($conn) {
-    $eoi_id = $_SESSION['eoi_number'];
-    $query = "SELECT * FROM eoi WHERE EOInumber = $eoi_id";
-    $result = mysqli_query($conn, $query);
-    if ($result && mysqli_num_rows($result) > 0) {
-        $eoi = mysqli_fetch_assoc($result);
-    }
-    mysqli_close($conn);
+$eoi_number = $_SESSION['eoi_number'];
+$conn = mysqli_connect($host, $user, $pwd, $sql_db);
+if (!$conn) {
+    echo "<main><p>😢 Connection failed. Try again later.</p></main>";
+    require_once 'footer.inc';
+    exit();
 }
+
+$query = "SELECT * FROM eoi WHERE EOInumber = ?";
+$stmt = mysqli_prepare($conn, $query);
+mysqli_stmt_bind_param($stmt, 'i', $eoi_number);
+mysqli_stmt_execute($stmt);
+$result = mysqli_stmt_get_result($stmt);
+
+if (mysqli_num_rows($result) == 1) {
+    $row = mysqli_fetch_assoc($result);
+    ?>
+    <main class="application-status">
+        <h1>📄 Application Status</h1>
+        <p><strong>Name:</strong> <?php echo htmlspecialchars($row['first_name'] . ' ' . $row['last_name']); ?></p>
+        <p><strong>Job Reference:</strong> <?php echo htmlspecialchars($row['job_ref_number']); ?></p>
+        <p><strong>Submitted Email:</strong> <?php echo htmlspecialchars($row['email']); ?></p>
+        <p><strong>Current Status:</strong> <span style="color: #00c853; font-weight: 600;">
+            <?php echo htmlspecialchars($row['status']); ?>
+        </span></p>
+        <a href="logout.php" class="primary-button">Log Out</a>
+    </main>
+    <?php
+} else {
+    echo "<main><p>😔 Sorry, we couldn't find your application.</p></main>";
+}
+
+mysqli_stmt_close($stmt);
+mysqli_close($conn);
+require_once 'footer.inc';
 ?>
-
-<main class="status-section">
-  <h1 class="section-headline">Your Application Status</h1>
-
-  <?php if ($eoi): ?>
-    <p><strong>Name:</strong> <?php echo htmlspecialchars($eoi['first_name'] . " " . $eoi['last_name']); ?></p>
-    <p><strong>Job Reference:</strong> <?php echo htmlspecialchars($eoi['job_ref_number']); ?></p>
-    <p><strong>Status:</strong> <?php echo htmlspecialchars($eoi['status']); ?></p>
-    <p><strong>Email:</strong> <?php echo htmlspecialchars($eoi['email']); ?></p>
-    <p><strong>Phone:</strong> <?php echo htmlspecialchars($eoi['phone']); ?></p>
-    <p><strong>Address:</strong> <?php echo htmlspecialchars($eoi['street_address'] . ", " . $eoi['suburb'] . ", " . $eoi['state'] . " " . $eoi['postcode']); ?></p>
-    <p><strong>Skills:</strong> <?php echo htmlspecialchars($eoi['skill1']); ?><?php if ($eoi['skill2']) echo ", " . htmlspecialchars($eoi['skill2']); ?></p>
-    <p><strong>Other Skills:</strong> <?php echo nl2br(htmlspecialchars($eoi['other_skills'])); ?></p>
-
-    <a href="logout.php" class="primary-button" style="margin-top: 20px;">Log Out</a>
-  <?php else: ?>
-    <p>Oops 😬... We couldn’t find your application details.</p>
-    <a href="login.php" class="primary-button">Try Logging In Again</a>
-  <?php endif; ?>
-</main>
-
-<?php require_once 'footer.inc'; ?>
