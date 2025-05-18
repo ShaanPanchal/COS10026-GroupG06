@@ -24,7 +24,7 @@
 <div class="form-group">
   <label for="state">State</label>
   <select id="state" name="state" required>
-    <option value="">Select State</option>
+    <option value="" disabled selected>Select State</option>
     <option value="VIC">VIC</option>
     <option value="NSW">NSW</option>
     <option value="QLD">QLD</option>
@@ -56,7 +56,7 @@
 <div class="form-group full-width">
   <label for="skill1">Required Skills</label>
   <select id="skill1" name="skill1" required>
-    <option value="">Select a skill</option>
+  <option value="" disabled selected>Select a skill</option>
     <option value="HTML">HTML</option>
     <option value="CSS">CSS</option>
     <option value="JavaScript">JavaScript</option>
@@ -67,7 +67,7 @@
     <option value="Git">Git</option>
     <option value="React">React</option>
     <option value="Node.js">Node.js</option>
-    <option value="">Not looking good fo you! (none??)</option>
+    <option value="None">Not looking good fo you! (none??)</option>
   </select>
 </div>
 
