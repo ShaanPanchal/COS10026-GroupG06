@@ -23,7 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $row = mysqli_fetch_assoc($result);
             if (password_verify($password, $row['password'])) {
                 $_SESSION['eoi_number'] = $row['EOInumber'];
-                header("Location: status.php");
+                header("Location:status.php");
                 exit();
             } else {
                 $error = "Incorrect password.";

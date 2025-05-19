@@ -7,7 +7,7 @@ require_once 'settings.php';
 
 // Access protection
 if (!isset($_SESSION['manager_logged_in']) || $_SESSION['manager_logged_in'] !== true) {
-    header("Location: manager_login.php");
+    header("Location:manager_login.php");
     exit();
 }
 

@@ -5,7 +5,7 @@ require_once 'nav.inc';
 require_once 'settings.php';
 
 if (!isset($_SESSION['eoi_number'])) {
-    header("Location: login.php");
+    header("Location:login.php");
     exit();
 }
 

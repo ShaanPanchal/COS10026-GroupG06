@@ -15,7 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($username === $correct_username && $password === $correct_password) {
         $_SESSION['manager_logged_in'] = true;
-        header("Location: manage.php");
+        header("Location:manage.php");
         exit();
     } else {
         $error = "Invalid username or password.";
