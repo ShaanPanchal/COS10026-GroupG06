@@ -21,7 +21,7 @@
           }
           mysqli_close($conn);
         } else {
-          echo '<option value="">Database connection error</option>';
+          echo '<option value=""> Database connection error </option>';
         }
         ?>
       </select>
