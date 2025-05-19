@@ -51,12 +51,6 @@ if (!$conn) {
     exit();
 }
 
-// Ensure table has username and password fields
-$tableCheck = mysqli_query($conn, "SHOW COLUMNS FROM eoi LIKE 'username'");
-if (mysqli_num_rows($tableCheck) == 0) {
-    mysqli_query($conn, "ALTER TABLE eoi ADD username VARCHAR(50) UNIQUE, ADD password VARCHAR(255)");
-}
-
 // Generate unique username
 function generateUsername($firstName, $lastName, $conn) {
     $base = strtolower(substr($firstName, 0, 3) . substr($lastName, 0, 3));
