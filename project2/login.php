@@ -1,7 +1,7 @@
 <?php
 session_start();
-session_destroy(); // 💣 End old session
-session_start();   // 💖 Begin fresh one
+session_destroy(); // End old session
+session_start();   // Begin fresh one
 
 $pageTitle = "Login | SRN Careers";
 require_once 'header.inc';
