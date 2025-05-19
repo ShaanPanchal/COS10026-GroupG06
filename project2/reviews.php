@@ -1,39 +1,35 @@
-<?php
-$pageTitle = "Reviews | SRN Careers";
-require_once 'header.inc';
-require_once 'nav.inc';
+<!-- 
+  filename: reviews.php
+  author: Neeven
+  created: [enter date]
+  last modified: [enter date]
+  description: PHP file for the reviews page of careers.srn
+-->
+
+<?php 
+  $pageTitle = "Reviews | SRN Careers";
+  require_once 'header.inc'; 
+  require_once 'nav.inc'; 
 ?>
 
 <section class="review-section">
-    <h1 class="review-title">⭐️ REVIEWS ⭐️</h1>
-    <div class="review-grid">
-        <?php
-        // Database connection if you want to load reviews from DB
-        require_once 'settings.php';
-        $conn = mysqli_connect($host, $user, $pwd, $sql_db);
-        
-        if ($conn) {
-            $query = "SELECT * FROM reviews ORDER BY date_added DESC";
-            $result = mysqli_query($conn, $query);
-            
-            if (mysqli_num_rows($result) > 0) {
-                while ($row = mysqli_fetch_assoc($result)) {
-                    echo '<div class="review-card">';
-                    echo '“' . htmlspecialchars($row['review_text']) . '” — ' . htmlspecialchars($row['reviewer_name']);
-                    echo '<br>' . str_repeat('⭐️', $row['rating']);
-                    echo '</div>';
-                }
-            } else {
-                // Fallback to static reviews if DB is empty
-                include 'static_reviews.inc';
-            }
-            mysqli_close($conn);
-        } else {
-            // Fallback to static reviews if DB connection fails
-            include 'static_reviews.inc';
-        }
-        ?>
-    </div>
+  <h1 class="review-title">⭐️ REVIEWS ⭐️</h1>
+  <div class="review-grid">
+    <div class="review-card">“This site made applying feel so easy and stress-free. Super clean interface and everything just worked!” — Alex M.<br>⭐️⭐️⭐️⭐️⭐️</div>
+    <div class="review-card">“Honestly, I wasn't expecting to find something this professional. Props to the team — great experience!” — Sienna K.<br>⭐️⭐️⭐️⭐️</div>
+    <div class="review-card">“The dark theme? The layout? The vibes? All 10/10. Loved every second browsing through.” — Jay P.<br>⭐️⭐️⭐️⭐️⭐️</div>
+    <div class="review-card">“Quick, responsive and no glitches at all. Plus, the design is just chef's kiss.” — Tariq L.<br>⭐️⭐️⭐️⭐️</div>
+    <div class="review-card">“One of the best-looking career sites I've used. Clean, clear, and fast. Y'all did great.” — Leo W.<br>⭐️⭐️⭐️</div>
+    <div class="review-card">“From the moment I landed on the page, I could tell this wasn't just another basic site. Smooth AF!” — Chloe D.<br>⭐️⭐️⭐️⭐️⭐️</div>
+    <div class="review-card">“Professional, elegant, and straight to the point. Loved how easy it was to navigate.” — Ryan S.<br>⭐️⭐️⭐️⭐️</div>
+    <div class="review-card">“The modern aesthetic and mobile responsiveness really stood out. Easily one of the best UI experiences!” — Zara N.<br>⭐️⭐️⭐️⭐️⭐️</div>
+  </div>
 </section>
 
 <?php require_once 'footer.inc'; ?>
+
+<!-- 
+  ACKNOWLEDGEMENT FOR USE OF AI (Harvard Reference):
+  OpenAI. (2024). ChatGPT [Large language model]. Available at: https://chat.openai.com/
+  I have used AI to generate the description content and reviews using prompts.
+-->
