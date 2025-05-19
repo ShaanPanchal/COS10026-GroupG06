@@ -23,7 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         if ($password === $row['password'])  {
             $_SESSION['manager_logged_in'] = true;
             $_SESSION['manager_username'] = $username;
-            header("Location:manage.php");
+            header("Location: manage.php");
             exit();
         } else {
             $login_error = "Invalid password.";
@@ -43,7 +43,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <div class="form-container">
         <h1 class="section-headline">Manager Login</h1>
         <?php if ($login_error): ?>
-            <p style="color: red; text-align: center;"><?php echo $login_error; ?></p>
+            <p class="error-msg"><?php echo $login_error; ?></p>
         <?php endif; ?>
 
         <form method="POST" action="manager_login.php">
