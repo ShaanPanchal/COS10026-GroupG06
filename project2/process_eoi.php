@@ -91,7 +91,7 @@ if ($result) {
     $_SESSION['last_eoi_number'] = $newEoiNumber;
     $_SESSION['generated_username'] = $username;
     $_SESSION['generated_password'] = $password;
-    header("Location: thankyou.php");
+    header("Location: thank-you.php");
     exit();
 } else {
     echo "<main><p>Something went wrong, 😔 couldn't submit application.</p></main>";
