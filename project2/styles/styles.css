@@ -1028,14 +1028,14 @@ body {
     margin: 0 auto;
   }
   
-  .review-card {
+.review-card {
     background-color: #1f1f1f;
     padding: 30px 24px;
     border-radius: 16px;
     font-weight: 500;
     font-size: 16px;
     letter-spacing: 0.5px;
-    color: #fff;
+    color: #0a0a0a;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1046,9 +1046,9 @@ body {
     margin: 0 auto; 
   }
   
-  .review-card:hover {
+.review-card:hover {
     transform: scale(1.03);
-    background-color: #2a2a2a;
+    background-color: #ece7e7;
   }
 
 
