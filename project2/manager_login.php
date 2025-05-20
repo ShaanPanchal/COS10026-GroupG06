@@ -1,5 +1,5 @@
 <?php
-
+session_start(); // 🩵 Must be at the top!
 
 require_once 'settings.php';
 require_once 'header.inc';
@@ -45,7 +45,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 <main class="application-section">
   <div class="form-container">
-    <h1 class="section-headline">Staff Login</h1>
+    <h1 class="hero-headline">HR Login</h1>
 
     <?php if (!empty($login_error)): ?>
       <p class="error-msg"><?php echo htmlspecialchars($login_error); ?></p>
@@ -59,7 +59,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
       <div class="form-group full-width">
         <label for="password">Password</label>
-        <input type="password" name="password" required placeholder="Enter your password">
+        <input type="password" name="password" class="styled-input" required placeholder="Enter your password">
       </div>
 
       <div class="form-group full-width">
