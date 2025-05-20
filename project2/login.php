@@ -40,7 +40,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 ?>
 
 <main class="form-container">
-  <h1 class="section-headline">Applicant Login</h1>
+  <h1 class="hero-headline">Applicant Login</h1>
   <form method="POST" action="login.php" novalidate>
     <div class="form-group">
       <label for="username">Username</label>
@@ -48,7 +48,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     </div>
     <div class="form-group">
       <label for="password">Password</label>
-      <input type="password" name="password" required placeholder="Enter your password">
+      <input type="password" name="password" class="styled-input" required placeholder="Enter your password">
     </div>
     <div class="form-group full-width">
       <button type="submit" class="primary-button">Log In</button>
