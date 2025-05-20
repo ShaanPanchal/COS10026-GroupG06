@@ -9,7 +9,7 @@ $selectedJobRef = isset($_GET['job_ref']) ? htmlspecialchars($_GET['job_ref']) :
 
 <main>
   <section class="application-section">
-    <h1 class="section-headline">Application Form</h1>
+    <h1 class="hero-headline">Application Form</h1>
     <div class="form-container">
       <?php
         include 'form_top.inc';     
