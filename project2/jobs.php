@@ -31,7 +31,6 @@ require_once 'settings.php';
         echo '<li>' . (strpos($row['location'], 'Melbourne') !== false ? 'In Person' : 'Virtually') . '</li>';
         echo '</ul>';
 
-        echo '<div class="job-footer">';
         echo '<details class="job-description">';
         echo '<summary>View Description</summary>';
         echo '<div>';
@@ -69,7 +68,7 @@ require_once 'settings.php';
           echo '</ul>';
         }
 
-        // Essential Requirements (keep if you're still using it separately)
+        // Essential Requirements
         if (!empty($row['essential_requirements'])) {
           echo '<strong>Essential Requirements:</strong>';
           echo '<ul>';
@@ -79,7 +78,7 @@ require_once 'settings.php';
           echo '</ul>';
         }
 
-        // Skills Table (rendered raw HTML)
+        // Skills Table (raw HTML)
         if (!empty($row['skills_table'])) {
           echo '<strong>Required Skills:</strong>';
           echo $row['skills_table'];
@@ -87,8 +86,12 @@ require_once 'settings.php';
 
         echo '</div>';
         echo '</details>';
+
+        // 💙 Apply button OUTSIDE of details
+        echo '<div class="job-footer">';
         echo '<a href="apply.php?job_ref=' . urlencode($row['job_reference']) . '" class="apply-btn">Apply</a>';
         echo '</div>';
+
         echo '</article>';
       }
 
