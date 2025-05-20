@@ -625,6 +625,7 @@ header{
 
 .form-group {
     margin-bottom: 20px;
+    margin-top: 10%;
 }
 
 .form-group.full-width {
@@ -634,7 +635,7 @@ header{
 label {
     display: block;
     margin-bottom: 8px;
-    font-size: 14px;
+    font-size: 20px;
     font-weight: 500;
     color: #f5f5f7;
 }
@@ -1332,3 +1333,22 @@ body {
         text-align: center;
     }
 }
+
+
+.styled-input {
+    width: 100%;
+    padding: 12px 16px;
+    background-color: #1d1d1f;
+    border: 1px solid #333;
+    border-radius: 8px;
+    font-size: 16px;
+    color: #f5f5f7;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+  }
+  
+  .styled-input:focus {
+    outline: none;
+    border-color: #0071e3;
+    box-shadow: 0 0 0 3px rgba(0, 113, 227, 0.3);
+  }

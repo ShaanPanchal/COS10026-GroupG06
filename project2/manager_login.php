@@ -21,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             die("Connection failed: " . mysqli_connect_error());
         }
 
-        // ✅ Still using the managers table
+      
         $query = "SELECT * FROM managers WHERE username = ?";
         $stmt = mysqli_prepare($conn, $query);
         mysqli_stmt_bind_param($stmt, "s", $username);
@@ -51,7 +51,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 <main class="application-section">
     <div class="form-container">
-        <h1 class="section-headline">Staff Login</h1>
+        <h1 class="hero-headline">Staff Login</h1>
         <?php if ($login_error): ?>
             <p class="error-msg"><?php echo $login_error; ?></p>
         <?php endif; ?>
@@ -64,7 +64,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
             <div class="form-group full-width">
                 <label for="password">Password</label>
-                <input type="password" name="password" required placeholder="Enter your password">
+                <input type="password" name="password" class="styled-input" required placeholder="Enter your password">
             </div>
 
             <div class="form-group full-width">
