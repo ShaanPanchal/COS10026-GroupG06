@@ -49,9 +49,9 @@ $result = mysqli_query($conn, $query);
               <form method="POST" action="update_status.php" class="mgmt-status-form">
                 <input type="hidden" name="eoi_id" value="<?php echo $row['EOInumber']; ?>">
                 <select name="status" class="mgmt-select">
-                  <option value="New" <?php if ($row['status'] === 'New') echo 'selected'; ?>>New</option>
-                  <option value="Current" <?php if ($row['status'] === 'Current') echo 'selected'; ?>>Current</option>
-                  <option value="Final" <?php if ($row['status'] === 'Final') echo 'selected'; ?>>Final</option>
+                  <option value="Accepted" <?php if ($row['status'] === 'Accepted') echo 'selected'; ?>>Accepted</option>
+                  <option value="Rejected" <?php if ($row['status'] === 'Rejected') echo 'selected'; ?>>Rejected</option>
+                  <option value="On Hold" <?php if ($row['status'] === 'On Hold') echo 'selected'; ?>>On Hold</option>
                 </select>
                 <button type="submit" class="mgmt-update">Update</button>
               </form>

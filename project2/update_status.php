@@ -12,7 +12,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $eoi_id = intval($_POST['eoi_id'] ?? 0);
     $status = $_POST['status'] ?? '';
 
-    $allowed_statuses = ['New', 'Current', 'Final'];
+    // ✅ Updated statuses
+    $allowed_statuses = ['Accepted', 'Rejected', 'On Hold'];
     if (!in_array($status, $allowed_statuses)) {
         $_SESSION['message'] = '❌ Invalid status selected.';
         $_SESSION['message_type'] = 'error';
@@ -48,4 +49,3 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     header("Location: manage.php");
     exit();
 }
-?>
