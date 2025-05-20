@@ -19,18 +19,19 @@
                     </div>
                 </div>
             </div>
-        </div>
-            <h2 class="section-headline">
-                <a href="https://github.com/ShaanPanchal/COS10026-GroupG06.git" target="_blank">GitHub</a>
-            </h2>
-            <br>
-            <h2 class="section-headline">
-                <a href="https://neevenemmanuel.atlassian.net/jira/software/projects/WWTP/summary?atlOrigin=eyJpIjoiOWM1ZjBkZWRkOWJmNGZhM2FlZjE3ZTYyMTRkMjI2MzAiLCJwIjoiaiJ9" target="_blank">Jira</a>
-            </h2>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2025 SRN Careers. All rights reserved.</p>
-        </div>
+            <div class="footer-extras">
+  <div class="footer-left">
+    <a href="https://github.com/..." target="_blank">GitHub</a>
+  </div>
+  <div class="footer-right">
+    <a href="https://neevenemmanuel.atlassian.net/..." target="_blank">Jira</a>
+  </div>
+</div>
+<hr class="footer-line">
+<div class="footer-bottom">
+  <span>&copy;2025 SRN Careers | All rights reserved.</span>
+  <span> Swinburne University of technology </span>
+</div>
     </footer>
 </body>
 </html>
