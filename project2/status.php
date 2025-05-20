@@ -27,7 +27,7 @@ if (mysqli_num_rows($result) == 1) {
     $row = mysqli_fetch_assoc($result);
     ?>
     <main class="application-status">
-        <h1>📄 Application Status</h1>
+        <h1> Application Status</h1>
         <p><strong>Name:</strong> <?php echo htmlspecialchars($row['first_name'] . ' ' . $row['last_name']); ?></p>
         <p><strong>Job Reference:</strong> <?php echo htmlspecialchars($row['job_ref_number']); ?></p>
         <p><strong>Submitted Email:</strong> <?php echo htmlspecialchars($row['email']); ?></p>

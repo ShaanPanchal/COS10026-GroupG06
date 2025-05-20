@@ -47,13 +47,14 @@ $result = mysqli_query($conn, $query);
             <td><?php echo htmlspecialchars($row['status']); ?></td>
             <td>
               <form method="POST" action="update_status.php" class="mgmt-status-form">
-                <input type="hidden" name="eoi_id" value="<?php echo $row['EOInumber']; ?>">
-                <select name="status" class="mgmt-select">
-                  <option value="Accepted" <?php if ($row['status'] === 'Accepted') echo 'selected'; ?>>Accepted</option>
-                  <option value="Rejected" <?php if ($row['status'] === 'Rejected') echo 'selected'; ?>>Rejected</option>
-                  <option value="On Hold" <?php if ($row['status'] === 'On Hold') echo 'selected'; ?>>On Hold</option>
-                </select>
+              <input type="hidden" name="eoi_id" value="<?php echo $row['EOInumber']; ?>">
+              <select name="status" class="mgmt-select">
+                <option value="Accepted" <?php if ($row['status'] === 'Accepted') echo 'selected'; ?>>Accepted</option>
+                <option value="Rejected" <?php if ($row['status'] === 'Rejected') echo 'selected'; ?>>Rejected</option>
+                <option value="On Hold" <?php if ($row['status'] === 'On Hold') echo 'selected'; ?>>On Hold</option>
+              </select>
                 <button type="submit" class="mgmt-update">Update</button>
+                <a href="view_eoi.php?eoi_id=<?php echo $row['EOInumber']; ?>" class="primary-button button-left-space">View</a>
               </form>
             </td>
           </tr>

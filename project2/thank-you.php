@@ -12,7 +12,7 @@ require_once 'nav.inc';
 
   <?php if (isset($_SESSION['last_eoi_number'])): ?>
     <div class="confirmation-number">
-      <p>Your Expression of Interest number is:</p>
+      <p>🐣 Wooohooo !! your application has been succesfully sumitted 🥳. <br> 🤩 And now is in processing !!! <br> please keep checking your status for updates !!! ✌️ <br> your current applicant number is :</p>
       <div class="eoi-number"><?php echo $_SESSION['last_eoi_number']; ?></div>
     </div>
     <div class="confirmation-number">
@@ -22,11 +22,11 @@ require_once 'nav.inc';
     <div class="confirmation-number">
       <p>Your temporary password is:</p>
       <div class="eoi-number"><?php echo $_SESSION['generated_password']; ?></div>
-      <p class="title-3" style="color: #86868b;">Please keep it safe to view your application status.</p>
+      <p class="subtitle-note">Please keep it safe to view your application status.</p>
     </div>
     <?php unset($_SESSION['last_eoi_number']); unset($_SESSION['generated_username']); unset($_SESSION['generated_password']); ?>
   <?php else: ?>
-    <p class="title-3" style="color: #86868b;">You seem to have landed here by mistake. 😅</p>
+    <p class="subtitle-note">You seem to have landed here by mistake. 😅</p>
   <?php endif; ?>
 
   <a href="jobs.php" class="primary-button large">View Other Positions</a>
