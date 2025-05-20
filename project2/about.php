@@ -71,6 +71,12 @@ require_once 'settings.php';
         <li>Favourite music: Rap, Lo-Fi</li>
       </ul>
     </section>
+    <ul class="social-icons">
+                <li><img src="/project2/styles/images/twitter.png" alt="twitter" width="85"></li>
+                <li><img src="/project2/styles/images/telegram.png" alt="telegram" width="85"></li>
+                <li><img src="/project2/styles/images/youtube.png" alt="youtube" width="85"></li>
+                <li><img src="/project2/styles/images/inst.png" alt="inst" width="80"></li>
+            </ul>
 
     <a href="reviews.php"><h2 class="hero-headline">Reviews</h2></a>
   </section>
