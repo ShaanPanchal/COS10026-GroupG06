@@ -21,10 +21,10 @@
             </div>
             <div class="footer-extras">
   <div class="footer-left">
-    <a href="https://github.com/..." target="_blank">GitHub</a>
+    <a href="https://github.com/ShaanPanchal/COS10026-GroupG06.git" target="_blank">GitHub</a>
   </div>
   <div class="footer-right">
-    <a href="https://neevenemmanuel.atlassian.net/..." target="_blank">Jira</a>
+    <a href="https://neevenemmanuel.atlassian.net/jira/software/projects/WWTP/summary?atlOrigin=eyJpIjoiOWM1ZjBkZWRkOWJmNGZhM2FlZjE3ZTYyMTRkMjI2MzAiLCJwIjoiaiJ9" target="_blank">Jira</a>
   </div>
 </div>
 <hr class="footer-line">
