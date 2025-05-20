@@ -19,15 +19,21 @@ require_once 'nav.inc';
 
         <a href="jobs.php" class="primary-button large btn-view-jobs">View Positions</a>
 
-    <div class="home-action-buttons">
-        <a href="apply.php" class="primary-button">💼 Apply for a Job</a>
-        <?php if (!isset($_SESSION['eoi_number'])): ?>
-        <a href="login.php" class="secondary-button">🔐 Check Application Status</a>
-        <a href="manager_login.php" class="secondary-button">🧑‍💼 Staff Login</a>
-        <?php else: ?>
-        <a href="status.php" class="secondary-button">📄 View My Application</a>
-        <a href="logout.php" class="secondary-button">🚪 Log Out</a>
-    <?php endif; ?>
+        <div class="home-action-buttons">
+  <a href="apply.php" class="primary-button">💼 Apply for a Job</a>
+
+  <?php if (!isset($_SESSION['eoi_number']) && !isset($_SESSION['staff_logged_in'])): ?>
+    <a href="login.php" class="primary-button">🔐 Check Application Status</a>
+    <a href="manager_login.php" class="primary-button">🧑‍💼 Staff Login</a>
+  
+  <?php elseif (isset($_SESSION['eoi_number'])): ?>
+    <a href="status.php" class="primary-button">📄 View My Application</a>
+    <a href="logout.php" class="primary-button">🚪 Log Out</a>
+
+  <?php elseif (isset($_SESSION['staff_logged_in'])): ?>
+    <a href="manage.php" class="primary-button">📋 Manage EOIs</a>
+    <a href="logout.php" class="primary-button">🚪 Log Out</a>
+  <?php endif; ?>
 </div>
     </div>
 </section>
