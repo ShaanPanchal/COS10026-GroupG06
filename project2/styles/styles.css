@@ -965,6 +965,23 @@ html {
 }
 
 
+/* Make image circular inside about section */
+.rounded-img {
+    width: 200px;               /* You can adjust size */
+    height: 100%;
+    border-radius: 10%;         /* Rounds the corners into a circle */
+    object-fit: cover;          /* Ensures it doesn’t stretch */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Optional: subtle glow */
+    transition: transform 0.3s ease;
+}
+
+  
+/* Optional: center the whole figure on page */
+#group-img {
+    text-align: center;
+    margin-top: -5px;
+}
+
 
 
 /* icons. */

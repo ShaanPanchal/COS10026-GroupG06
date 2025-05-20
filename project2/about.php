@@ -48,7 +48,7 @@ require_once 'settings.php';
 
     <h2 class="section-headline">Our Team Photo</h2>
     <figure id="group-img">
-      <img src="images/group-img.png" alt="Group Photo" id="group-img">
+      <img src="images/group-img.png" alt="Group Photo" id="group-img" class="rounded-img">
       <figcaption>Captured during brainstorming session in late-lab</figcaption>
     </figure>
 
