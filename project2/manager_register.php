@@ -7,7 +7,7 @@ require_once 'settings.php';
 
 // Constant credentials for one manager only
 $correct_username = 'admin';
-$correct_password = 'secure123'; // change this to your preferred password
+$correct_password = 'secure123'; 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = trim($_POST['username']);
