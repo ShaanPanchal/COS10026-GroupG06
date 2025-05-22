@@ -1,5 +1,5 @@
 <?php
-session_start(); // 🩵 Must be at the top!
+session_start(); 
 
 require_once 'settings.php';
 require_once 'header.inc';

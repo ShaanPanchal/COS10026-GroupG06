@@ -72,8 +72,8 @@
 </div>
 
 <div class="form-group full-width">
-  <label for="skill2">Other Skill (optional)</label>
-  <input type="text" id="skill2" name="skill2" placeholder="e.g. Bootstrap or Figma" />
+  <label for="skill2">skill2</label>
+  <input type="text" id="skill2" name="skill2" placeholder="e.g. Bootstrap or Figma" required/>
 </div>
 
 <div class="form-group full-width">
