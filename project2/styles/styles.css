@@ -977,7 +977,7 @@ html {
 }
 
   
-/* Optional: center the whole figure on page */
+/*  center the whole figure on page */
 #group-img {
     text-align: center;
     margin-top: -5px;
@@ -1397,3 +1397,69 @@ body {
     text-align: center;
     margin-top: 15px;
 }
+
+
+/* work distribution cards styling */
+.team-contributions {
+    padding: 60px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .team-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+  }
+  
+  .team-card {
+    background-color: #1d1d1f;
+    border: 1px solid #333;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 400px;
+    min-height: 320px;
+    padding: 30px;
+    box-sizing: border-box;
+    text-align: center;
+    transition: transform 0.3s ease;
+  }
+  
+  .team-card:hover {
+    transform: scale(1.02);
+  }
+  
+  .team-card h3 {
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: #f5f5f7;
+  }
+  
+  .team-description summary {
+    cursor: pointer;
+    font-weight: 500;
+    color: #71bef5;
+    margin-bottom: 8px;
+    font-size: 16px;
+  }
+  
+  .team-description[open] summary {
+    color: #ffffff;
+  }
+  
+  .team-description p {
+    margin: 10px 0;
+    font-size: 14px;
+    color: #ccc;
+    line-height: 1.5;
+  }
+  
+  /* Mobile responsiveness */
+  @media (max-width: 768px) {
+    .team-card {
+      width: 100%;
+      max-width: 100%;
+    }
+  }

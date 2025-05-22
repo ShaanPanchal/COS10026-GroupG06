@@ -45,6 +45,44 @@ require_once 'settings.php';
       <dt>Shaan</dt><div class="rolies"><dd>Job application, homepage</dd></div>
       <dt>Neeven</dt><div class="rolies"><dd>Job description, about page</dd></div>
     </dl>
+    <h2 class="hero-headline">listen to the authors!</h2>
+    <section class="team-contributions">
+  <div class="team-grid">
+    <!-- Shaan Card -->
+    <article class="team-card">
+      <h3>Shaan</h3>
+      <details class="team-description">
+        <summary>View Description</summary>
+        <p>
+          In this project, I modularised the website structure by converting common HTML elements—such as the header, footer, and navigation menu—into separate PHP include files (<code>header.inc</code>, <code>footer.inc</code>, <code>nav.inc</code>) for improved maintainability and consistency.
+        </p>
+        <p>
+          I developed <code>process_eoi.php</code> to securely handle form submissions with server-side validation. Successful submissions return a confirmation message with the auto-generated EOInumber.
+        </p>
+        <p>
+          I also created a project presentation to communicate the structure, features, and accessibility of the site.
+        </p>
+      </details>
+    </article>
+
+    <!-- Neeven Card -->
+    <article class="team-card">
+      <h3>Neeven</h3>
+      <details class="team-description">
+        <summary>View Description</summary>
+        <p>
+          I implemented the backend database and built the management interface. I created the <code>EOI</code> and <code>jobs</code> tables, including fields like auto-generated <strong>EOInumber</strong> and <strong>stage</strong> to track progress.
+        </p>
+        <p>
+          I also built <code>manage.php</code> for HR to view, search, filter, and update EOIs efficiently.
+        </p>
+        <p>
+          I ensured <strong>accessibility</strong> throughout the site—semantic HTML, alt text, keyboard navigation, and readable fonts to support inclusive design.
+        </p>
+      </details>
+    </article>
+  </div>
+</section>
 
     <h2 class="section-headline">Our Team Photo</h2>
     <figure id="group-img">
@@ -70,6 +108,7 @@ require_once 'settings.php';
         <li>Favourite books: <em>Clean Code, The Pragmatic Programmer</em></li>
         <li>Favourite music: Rap, Lo-Fi</li>
       </ul>
+      <a href="enhancements.php" class="primary-button large">Check Our Enhancements 🚀</a>
     </section>
     <a href="reviews.php"><h2 class="hero-headline">Reviews</h2></a>
   </section>
