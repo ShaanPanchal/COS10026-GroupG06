@@ -1360,3 +1360,27 @@ body {
     text-align: center;
     margin-top: 10px;
   }
+
+
+  /* manage php styling dropdown */
+.status-badge {
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: white;
+    text-align: center;
+}
+  
+.status-badge.accepted {
+    background-color: #28a745;
+}
+  
+.status-badge.rejected {
+    background-color: #dc3545;
+}
+  
+.status-badge.on-hold {
+    background-color: #ffc107;
+    color: #212529;
+}
