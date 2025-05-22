@@ -45,7 +45,7 @@ require_once 'settings.php';
       <dt>Shaan</dt><div class="rolies"><dd>Job application, homepage</dd></div>
       <dt>Neeven</dt><div class="rolies"><dd>Job description, about page</dd></div>
     </dl>
-    <h2 class="hero-headline">listen to the authors!</h2>
+    <h2 class="hero-headline">A word by the authors!</h2>
     <section class="team-contributions">
   <div class="team-grid">
     <!-- Shaan Card -->

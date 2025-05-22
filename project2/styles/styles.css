@@ -112,7 +112,7 @@ html {
     font-size: 14px;
     font-weight: 500;
     text-decoration: none;
-    transition: all 0.3s;
+    transition: all 0.2s;
 }
 
 .primary-button:hover {
@@ -1419,7 +1419,7 @@ body {
     border-radius: 12px;
     width: 100%;
     max-width: 400px;
-    min-height: 320px;
+    min-height: 100px;
     padding: 30px;
     box-sizing: border-box;
     text-align: center;
@@ -1427,7 +1427,7 @@ body {
   }
   
   .team-card:hover {
-    transform: scale(1.02);
+    transform: scale(2);
   }
   
   .team-card h3 {
