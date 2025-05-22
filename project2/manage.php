@@ -5,7 +5,7 @@ require_once 'header.inc';
 require_once 'nav.inc';
 require_once 'settings.php';
 
-// Only allow access if manager is logged in
+// Access control
 if (!isset($_SESSION['manager_logged_in']) || $_SESSION['manager_logged_in'] !== true) {
     header("Location: manager_login.php");
     exit();
@@ -18,14 +18,11 @@ if (!$conn) {
     exit();
 }
 
-// 💡 Sorting Logic
+// Sorting logic (ascending only)
 $allowed_fields = ['EOInumber', 'job_ref_number', 'first_name', 'status'];
 $sort_by = isset($_GET['sort']) && in_array($_GET['sort'], $allowed_fields) ? $_GET['sort'] : 'EOInumber';
 
-$order = ($_GET['order'] ?? 'desc') === 'asc' ? 'asc' : 'desc';
-$next_order = $order === 'asc' ? 'desc' : 'asc';
-
-$query = "SELECT * FROM eoi ORDER BY $sort_by $order";
+$query = "SELECT * FROM eoi ORDER BY $sort_by ASC";
 $result = mysqli_query($conn, $query);
 ?>
 
@@ -33,22 +30,14 @@ $result = mysqli_query($conn, $query);
   <h1 class="mgmt-title">EOI Management Dashboard</h1>
 
   <!-- Sorting Dropdown -->
-  <label for="sort">Sort by:</label>
-<select name="sort" id="sort" onchange="this.form.submit()">
-  <option value="EOInumber" <?= $sort_by === 'EOInumber' ? 'selected' : '' ?>>
-    EOI Number <?= $sort_by === 'EOInumber' ? ($order === 'asc' ? '▲' : '▼') : '' ?>
-  </option>
-  <option value="job_ref_number" <?= $sort_by === 'job_ref_number' ? 'selected' : '' ?>>
-    Job Ref <?= $sort_by === 'job_ref_number' ? ($order === 'asc' ? '▲' : '▼') : '' ?>
-  </option>
-  <option value="first_name" <?= $sort_by === 'first_name' ? 'selected' : '' ?>>
-    First Name <?= $sort_by === 'first_name' ? ($order === 'asc' ? '▲' : '▼') : '' ?>
-  </option>
-  <option value="status" <?= $sort_by === 'status' ? 'selected' : '' ?>>
-    Status <?= $sort_by === 'status' ? ($order === 'asc' ? '▲' : '▼') : '' ?>
-  </option>
-</select>
-    <input type="hidden" name="order" value="<?= $next_order ?>">
+  <form method="GET" class="mgmt-sort-form" style="margin-bottom: 1rem; text-align: center;">
+    <label for="sort">Sort by:</label>
+    <select name="sort" id="sort" onchange="this.form.submit()" class="mgmt-select">
+      <option value="EOInumber" <?= $sort_by === 'EOInumber' ? 'selected' : '' ?>>EOI Number ↑</option>
+      <option value="job_ref_number" <?= $sort_by === 'job_ref_number' ? 'selected' : '' ?>>Job Ref ↑</option>
+      <option value="first_name" <?= $sort_by === 'first_name' ? 'selected' : '' ?>>First Name ↑</option>
+      <option value="status" <?= $sort_by === 'status' ? 'selected' : '' ?>>Status ↑</option>
+    </select>
   </form>
 
   <?php if (mysqli_num_rows($result) > 0): ?>
@@ -72,7 +61,7 @@ $result = mysqli_query($conn, $query);
             <td><?= htmlspecialchars($row['email']) ?></td>
             <td>
               <span class="status-badge <?= strtolower(str_replace(' ', '-', $row['status'])) ?>">
-               <?= htmlspecialchars($row['status']) ?>
+                <?= htmlspecialchars($row['status']) ?>
               </span>
             </td>
             <td>
