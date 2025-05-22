@@ -1384,3 +1384,16 @@ body {
     background-color: #ffc107;
     color: #212529;
 }
+
+/* login php styling */
+
+.login-error {
+    color: #ff4d4f;
+    background-color: #1f1f1f;
+    padding: 10px 15px;
+    border-radius: 8px;
+    border: 1px solid #ff4d4f;
+    font-size: 15px;
+    text-align: center;
+    margin-top: 15px;
+}

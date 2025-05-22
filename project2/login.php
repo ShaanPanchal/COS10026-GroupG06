@@ -54,7 +54,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
       <button type="submit" class="primary-button">Log In</button>
     </div>
     <?php if ($error): ?>
-      <p style="color: red;"><?php echo $error; ?></p>
+      <p class="login-error"><?php echo htmlspecialchars($error); ?></p>
     <?php endif; ?>
   </form>
 </main>
