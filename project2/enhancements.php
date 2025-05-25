@@ -40,10 +40,11 @@ require_once 'nav.inc';
     </section>
 
     <section class="enhancement-block">
-      <h2 class="section-headline">🎨 Manager Login Background</h2>
-      <p class="paragraph">A <strong>blurred office image</strong> is added as a background for the manager login page, improving the visual experience for admin users.</p>
-    </section>
-
+      <h2 class="section-headline">🔐 Unique Applicant Login Credentials</h2>
+      <p class="paragraph">
+      A <strong>unique username and password</strong> is automatically generated for every applicant upon submission. These credentials allow users to securely log in and view the status of their application. This enhancement improves data privacy and gives applicants a seamless way to track their progress.
+      </p>
+      </section>
     <a href="index.php" class="primary-button">⬅️ Back to Home</a>
   </div>
 </main>
