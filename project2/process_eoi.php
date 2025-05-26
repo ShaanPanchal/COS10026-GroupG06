@@ -47,7 +47,7 @@ if (empty($job_ref_number)) $errors[] = "Job reference number is required.";
 
 // Show errors if any
 if (!empty($errors)) {
-    echo "<main><h2>“Error !! try again ! incorrect username or passcode !”</h2><ul>";
+    echo "<main><h2>“Error !! try again !”</h2><ul>";
     foreach ($errors as $error) echo "<li>$error</li>";
     echo "</ul><a href='apply.php' class='primary-button'>⏪ Go back to the form</a></main>";
     require_once 'footer.inc';
